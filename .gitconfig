@@ -1,0 +1,13 @@
+[alias]
+        cl = "!f() { \
+          git push origin HEAD:refs/for/${1:-main}; \
+        }; f"
+	s = "status"
+	l = log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --color=always --date=human
+	d = diff --stat
+	rollback = "!f() { \
+	  git checkout $1 -- $2; \
+	}; f"
+[user]
+	email = fmajor@google.com
+	name = Filip Major
