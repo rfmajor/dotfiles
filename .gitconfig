@@ -1,5 +1,5 @@
 [alias]
-        cl = "!f() { \
+   cl = "!f() { \
           git push origin HEAD:refs/for/${1:-main}; \
         }; f"
 	s = "status"
@@ -8,6 +8,7 @@
 	rollback = "!f() { \
 	  git checkout $1 -- $2; \
 	}; f"
-[user]
-	email = fmajor@google.com
-	name = Filip Major
+[core]
+	editor = vim
+[init]
+	defaultBranch = main
