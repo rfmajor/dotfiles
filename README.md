@@ -1,5 +1,9 @@
 # Setting up the configuration files
 
+```
+cd DOTFILES_DIR
+```
+
 ## Tmux 
 
 1. First time setup
