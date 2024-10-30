@@ -14,19 +14,19 @@ echo "source-file $(pwd)/.tmux.conf" >> ~/.tmux.conf
 tmux source-file ~/.tmux.conf
 ```
 
-## Git
+## Git (setup only once)
 
 ```
-git config --global include.path /home/fmajor/Git/Repos/dotfiles/.gitconfig
+git config --global include.path $(pwd)/.gitconfig
 ```
 
-## Vim
+## Vim (setup only once)
 
 ```
 echo "source $(pwd)/.vimrc" >> ~/.vimrc
 ```
 
-## IdeaVim
+## IdeaVim (setup only once)
 
 ```
 echo "source $(pwd)/.ideavimrc" >> ~/.ideavimrc
