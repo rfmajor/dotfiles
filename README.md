@@ -19,7 +19,7 @@ git config --global include.path /home/fmajor/Git/Repos/dotfiles/.gitconfig
 echo "source $(pwd)/.vimrc" >> ~/.vimrc
 ```
 
-## Vim
+## IdeaVim
 
 ```
 echo "source $(pwd)/.ideavimrc" >> ~/.ideavimrc
