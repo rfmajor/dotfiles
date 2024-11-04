@@ -5,6 +5,7 @@
 	rollback = "!f() { \
 	  git checkout $1 -- ${@:2}; \
 	}; f"
+   amd = commit --amend --no-edit
 [core]
 	editor = vim
 [init]
