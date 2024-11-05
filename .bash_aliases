@@ -3,4 +3,4 @@ rgl() {
   rg -p --stats "$@" | less -XF
 }
 
-setxkbmap -option ctrl:nocaps
+setxkbmap -option 'caps:ctrl_modifier' && xcape -e 'Control_L=Escape'

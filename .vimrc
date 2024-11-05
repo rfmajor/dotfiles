@@ -10,8 +10,5 @@ nnoremap <C-d> <C-d>zz
 nnoremap n nzz
 nnoremap N Nzz
 
-inoremap <C-k> <Esc>
-xnoremap <C-k> <Esc>
-
 "Paste over a visually selected area without the selection being placed in the default register
 xnoremap P Pgvy
