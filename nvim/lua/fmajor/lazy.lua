@@ -52,4 +52,3 @@ require("lazy").setup({
     {'hrsh7th/nvim-cmp'},
     { "catppuccin/nvim", name = "catppuccin", priority = 1000 }
 })
-
