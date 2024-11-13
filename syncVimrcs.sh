@@ -30,7 +30,7 @@ sed -r \
 
 echo -e "\n\n\" SETS (origin: $SET_REL)" >> $FILE;
 
-# Replacements for remap.lua:
+# Replacements for set.lua:
 #   replace 'vim.opt.$KEY=$VAL' with 'set $KEY=$VAL'
 #   replace 'set $VAL=false' with 'set no$VAL'
 #   replace '=true' with nothing
