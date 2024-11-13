@@ -1,6 +1,12 @@
 [alias]
 	s = "status"
 	l = log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --color=always --date=human
+    # tiny
+    lt = "l -5"
+    # medium
+    lm = "l -20"
+    # big
+    lb = "l -40"
 	d = diff --stat
 	rollback = "!f() { \
 	  git checkout $1 -- ${@:2}; \
