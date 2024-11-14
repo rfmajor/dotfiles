@@ -38,7 +38,7 @@ xnoremap <leader>( <Esc>`>a)<Esc>`<i(<Esc>lv`>l
 xnoremap <leader>< <Esc>`>a><Esc>`<i<<Esc>lv`>l
 xnoremap <leader>{ <Esc>`>a}<Esc>`<i{<Esc>lv`>l
 xnoremap <leader>[ <Esc>`>a]<Esc>`<i[<Esc>lv`>l
-xnoremap <leader>\" <Esc>`>a\"<Esc>`<i\"<Esc>lv`>l
+xnoremap <leader>" <Esc>`>a"<Esc>`<i"<Esc>lv`>l
 xnoremap <leader>' <Esc>`>a'<Esc>`<i'<Esc>lv`>l
 xnoremap <leader>` <Esc>`>a`<Esc>`<i`<Esc>lv`>l
 
