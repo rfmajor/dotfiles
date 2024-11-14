@@ -33,7 +33,7 @@ vnoremap <leader>x "_x
 nnoremap <leader>D "_D
 vnoremap <leader>D "_D
 
-" enclose the selected area with brackets
+" enclose the selected area and keep inner text selected (like in Intellij)
 xnoremap <leader>( <Esc>`>a)<Esc>`<i(<Esc>lv`>l
 xnoremap <leader>< <Esc>`>a><Esc>`<i<<Esc>lv`>l
 xnoremap <leader>{ <Esc>`>a}<Esc>`<i{<Esc>lv`>l

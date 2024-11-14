@@ -29,7 +29,7 @@ vim.keymap.set("v", "<leader>x", "\"_x")
 vim.keymap.set("n", "<leader>D", "\"_D")
 vim.keymap.set("v", "<leader>D", "\"_D")
 
--- enclose the selected area with brackets
+-- enclose the selected area and keep inner text selected (like in Intellij)
 vim.keymap.set("x", "<leader>(", "<Esc>`>a)<Esc>`<i(<Esc>lv`>l")
 vim.keymap.set("x", "<leader><", "<Esc>`>a><Esc>`<i<<Esc>lv`>l")
 vim.keymap.set("x", "<leader>{", "<Esc>`>a}<Esc>`<i{<Esc>lv`>l")
