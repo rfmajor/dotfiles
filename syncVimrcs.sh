@@ -40,11 +40,13 @@ echo -e "\n\n\" SETS (origin: $SET_REL)" >> $FILE;
 #   =true              --> nothing
 #   termguicolors line --> empty line (it breaks the colorscheme for default vim)
 #   ^vim leftovers     --> empty lines
+#   -- comments        --> " comments
 sed -r \
     -e 's/vim\.opt\.(.+)\s\=\s(.*)/set \1=\2/g;'\
     -e 's/set\s(.+)=false/set no\1/g;'\
     -e 's/\=true//g;'\
     -e 's/^set\stermguicolors$//g;'\
-    -e 's/^vim\..*$//g;' $SET_ABS >> $FILE;
+    -e 's/^vim\..*$//g;' \
+    -e 's/--/\"/g;' $SET_ABS >> $FILE;
 
 cd $ROOT_DIR && git add .vimrc

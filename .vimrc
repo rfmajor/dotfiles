@@ -47,30 +47,39 @@ nnoremap Q <nop>
 
 
 " SETS (origin: nvim/lua/fmajor/set.lua)
+" Fat cursor
 set guicursor=""
 
+" numbers and relative numbers
 set nu
 set relativenumber
 
+" 4 space tab
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set expandtab
 
+" indenting
 set smartindent
 
+" no line wrapping
 set nowrap
 
+" don't make backups or swapfiles
 set noswapfile
 set nobackup
+" save history to an undofile
 set undodir=os.getenv("HOME") .. "/.vim/undodir"
 set undofile
 
+" configure incremental search
 set nohlsearch
 set incsearch
 
 
 
+" keep 8 lines of margin when scrolling
 set scrolloff=8
 set signcolumn="yes"
 
