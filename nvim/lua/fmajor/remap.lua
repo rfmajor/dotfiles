@@ -29,9 +29,14 @@ vim.keymap.set("v", "<leader>x", "\"_x")
 vim.keymap.set("n", "<leader>D", "\"_D")
 vim.keymap.set("v", "<leader>D", "\"_D")
 
--- remap splits to mimic tmux bindings
-vim.keymap.set("n", "<C-w>\\", "<C-w>v")
-vim.keymap.set("n", "<C-w>-", "<C-w>s")
+-- enclose the selected area with brackets
+vim.keymap.set("x", "<leader>(", "<Esc>`>a)<Esc>`<i(<Esc>lv`>l")
+vim.keymap.set("x", "<leader><", "<Esc>`>a><Esc>`<i<<Esc>lv`>l")
+vim.keymap.set("x", "<leader>{", "<Esc>`>a}<Esc>`<i{<Esc>lv`>l")
+vim.keymap.set("x", "<leader>[", "<Esc>`>a]<Esc>`<i[<Esc>lv`>l")
+vim.keymap.set("x", "<leader>\"", "<Esc>`>a\"<Esc>`<i\"<Esc>lv`>l")
+vim.keymap.set("x", "<leader>'", "<Esc>`>a'<Esc>`<i'<Esc>lv`>l")
+vim.keymap.set("x", "<leader>`", "<Esc>`>a`<Esc>`<i`<Esc>lv`>l")
 
 -- remove Q
 vim.keymap.set("n", "Q", "<nop>")

@@ -33,9 +33,14 @@ vnoremap <leader>x "_x
 nnoremap <leader>D "_D
 vnoremap <leader>D "_D
 
-" remap splits to mimic tmux bindings
-nnoremap <C-w>\\ <C-w>v
-nnoremap <C-w>- <C-w>s
+" enclose the selected area with brackets
+xnoremap <leader>( <Esc>`>a)<Esc>`<i(<Esc>lv`>l
+xnoremap <leader>< <Esc>`>a><Esc>`<i<<Esc>lv`>l
+xnoremap <leader>{ <Esc>`>a}<Esc>`<i{<Esc>lv`>l
+xnoremap <leader>[ <Esc>`>a]<Esc>`<i[<Esc>lv`>l
+xnoremap <leader>\" <Esc>`>a\"<Esc>`<i\"<Esc>lv`>l
+xnoremap <leader>' <Esc>`>a'<Esc>`<i'<Esc>lv`>l
+xnoremap <leader>` <Esc>`>a`<Esc>`<i`<Esc>lv`>l
 
 " remove Q
 nnoremap Q <nop>
