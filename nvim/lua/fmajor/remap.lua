@@ -46,5 +46,3 @@ vim.keymap.set("n", "<C-l>", "40lzszH")
 vim.keymap.set("n", "<C-h>", "40hzszH")
 vim.keymap.set("n", "zZ", "zszH")
 
-
--- vim.keymap.set("x", "<leader>`", "<Esc>`<i`<Esc>`>la`<Esc>hv`<l") vim.keymap.set("x", "<leader>`", "<Esc>`<i`<Esc>`>la`<Esc>hv`<l") vim.keymap.set("x", "<leader>`", "<Esc>`<i`<Esc>`>la`<Esc>hv`<l") vim.keymap.set("x", "<leader>`", "<Esc>`<i`<Esc>`>la`<Esc>hv`<l") vim.keymap.set("x", "<leader>`", "<Esc>`<i`<Esc>`>la`<Esc>hv`<l") vim.keymap.set("x", "<leader>`", "<Esc>`<i`<Esc>`>la`<Esc>hv`<l") vim.keymap.set("x", "<leader>`", "<Esc>`<i`<Esc>`>la`<Esc>hv`<l") vim.keymap.set("x", "<leader>`", "<Esc>`<i`<Esc>`>la`<Esc>hv`<l") vim.keymap.set("x", "<leader>`", "<Esc>`<i`<Esc>`>la`<Esc>hv`<l")
