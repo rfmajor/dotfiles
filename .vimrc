@@ -45,6 +45,14 @@ xnoremap <leader>` <Esc>`<i`<Esc>`>la`<Esc>hv`<l
 " remove Q
 nnoremap Q <nop>
 
+" horizontal scroll and centering
+nnoremap <C-l> 40lzszH
+nnoremap <C-h> 40hzszH
+nnoremap zZ zszH
+
+
+" xnoremap <leader>`", "<Esc>`<i`<Esc>`>la`<Esc>hv`<l") vim.keymap.set("x", "<leader>`", "<Esc>`<i`<Esc>`>la`<Esc>hv`<l") vim.keymap.set("x", "<leader>`", "<Esc>`<i`<Esc>`>la`<Esc>hv`<l") vim.keymap.set("x", "<leader>`", "<Esc>`<i`<Esc>`>la`<Esc>hv`<l") vim.keymap.set("x", "<leader>`", "<Esc>`<i`<Esc>`>la`<Esc>hv`<l") vim.keymap.set("x", "<leader>`", "<Esc>`<i`<Esc>`>la`<Esc>hv`<l") vim.keymap.set("x", "<leader>`", "<Esc>`<i`<Esc>`>la`<Esc>hv`<l") vim.keymap.set("x", "<leader>`", "<Esc>`<i`<Esc>`>la`<Esc>hv`<l") vim.keymap.set("x", "<leader>` <Esc>`<i`<Esc>`>la`<Esc>hv`<l
+
 
 " SETS (origin: nvim/lua/fmajor/set.lua)
 " Fat cursor
