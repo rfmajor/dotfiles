@@ -11,7 +11,7 @@ config.color_scheme = 'Elementary'
 config.background = {
     {
         source = {
-            File = '/home/fmajor/dotfiles/wallpaper.png',
+            File = os.getenv("HOME") + '/dotfiles/wallpaper.png',
         },
         width = "100%",
         hsb = dimmer,
