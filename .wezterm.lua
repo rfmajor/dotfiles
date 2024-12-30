@@ -8,6 +8,7 @@ config.color_scheme = 'Elementary'
 -- config.color_scheme = 'Framer'
 --config.color_scheme = 'JetBrains Darcula'
 config.harfbuzz_features = { 'calt=0' }
+config.enable_tab_bar = false
 
 config.background = {
     {
