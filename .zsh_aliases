@@ -1,0 +1,15 @@
+source $HOME/dotfiles/.common_aliases
+
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
+
+alias zc="nvim $HOME/.zshrc && source $HOME/.zshrc"
+alias za="nvim $HOME/.zsh_aliases && source $HOME/.zshrc"
+alias zcd="nvim $HOME/dotfiles/.zshrc && source $HOME/.zshrc"
+alias zad="nvim $HOME/dotfiles/.zsh_aliases && source $HOME/.zshrc"
