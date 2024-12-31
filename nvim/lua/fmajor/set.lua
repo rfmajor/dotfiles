@@ -35,6 +35,10 @@ vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 
+-- case insensitive search
+vim.opt.smartcase = true
+vim.opt.ignorecase = true
+
 vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "80"
