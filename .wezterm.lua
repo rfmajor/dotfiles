@@ -13,10 +13,10 @@ config.enable_tab_bar = false
 config.background = {
     {
         source = {
-            File = os.getenv("HOME") .. '/dotfiles/wallpaper.png',
+            File = os.getenv("HOME") .. '/dotfiles/img/animals.png',
         },
         width = "100%",
-        hsb = dimmer,
+        hsb = { brightness = 0.1 },
     }
 }
 
