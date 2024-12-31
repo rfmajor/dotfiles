@@ -53,5 +53,5 @@ source ~/.bashrc
 ## Yazi
 
 ```
-ln -s $(readlink -f ~/dotfiles/yazi.toml) $(readlink -f ~/.config/yazi.toml)
+ln -s $(readlink -f ~/dotfiles/yazi.toml) $(readlink -f ~/.config/yazi/yazi.toml)
 ```
