@@ -50,3 +50,8 @@ echo "source $(pwd)/.bash_aliases" >> ~/.bash_aliases
 source ~/.bashrc
 ```
 
+## Yazi
+
+```
+ln -s $(readlink -f ~/dotfiles/yazi.toml) $(readlink -f ~/.config/yazi.toml)
+```
