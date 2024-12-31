@@ -24,6 +24,9 @@ zmodload zsh/complist
 compinit
 _comp_options+=(globdots)		# Include hidden files.
 
+# Auto cd
+setopt autocd
+
 # Vi mode
 bindkey -v
 export KEYTIMEOUT=1
