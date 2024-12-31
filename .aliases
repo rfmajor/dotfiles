@@ -1,0 +1,10 @@
+alias less="less -RM"
+alias vim=nvim
+rgl() {
+  rg -p --stats "$@" | less -XF
+}
+
+alias ll='ls -l'
+alias la='ls -A'
+alias l='ls -CF'
+alias python="/usr/bin/python3"
