@@ -60,6 +60,3 @@ if [ -f ~/.zsh_aliases ]; then
     . ~/.zsh_aliases
 fi
 
-# Zoxide 
-eval "$(zoxide init zsh)"
-
