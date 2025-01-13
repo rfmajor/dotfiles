@@ -16,6 +16,7 @@ autoload -U colors && colors
 HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.cache/zsh/history
+setopt SHARE_HISTORY
 
 # Basic autocomplete
 autoload -U compinit
