@@ -38,6 +38,11 @@ vim.keymap.set("x", "<leader>\"", "<Esc>`<i\"<Esc>`>la\"<Esc>hv`<l")
 vim.keymap.set("x", "<leader>'", "<Esc>`<i'<Esc>`>la'<Esc>hv`<l")
 vim.keymap.set("x", "<leader>`", "<Esc>`<i`<Esc>`>la`<Esc>hv`<l")
 
+-- split the windows horizontally/vertically
+vim.keymap.set("n", "<C-w>s", "<nop>")
+vim.keymap.set("n", "<C-w>t", ":split<CR>")
+vim.keymap.set("n", "<C-w>v", ":vsplit<CR>")
+
 -- remove Q
 vim.keymap.set("n", "Q", "<nop>")
 
