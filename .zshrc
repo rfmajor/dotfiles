@@ -13,6 +13,10 @@ PROMPT='%B%F{blue}%~ ${vcs_info_msg_0_}%(?.%F{green}.%F{red})>%f '
 autoload -U colors && colors
 
 # History in cache directory:
+if [ ! -f $HOME/.cache/zsh/ ];
+    mkdir -p $HOME/.cache/zsh
+fi
+
 HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.cache/zsh/history
