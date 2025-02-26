@@ -2,7 +2,9 @@
 
 # This script is supposed to be run as a pre-commit hook. It processes the 
 # set.lua and remap.lua files and produces a traditional .vimrc file 
-# as a result, then adds it to the staging area before making the actual commit
+# as a result, then adds it to the staging area before making the actual
+# commit.
+# Use this script as a local pre-commit hook.
 
 ROOT_DIR=$HOME/dotfiles
 FILE=$ROOT_DIR/.vimrc

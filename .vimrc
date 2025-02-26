@@ -42,6 +42,11 @@ xnoremap <leader>" <Esc>`<i"<Esc>`>la"<Esc>hv`<l
 xnoremap <leader>' <Esc>`<i'<Esc>`>la'<Esc>hv`<l
 xnoremap <leader>` <Esc>`<i`<Esc>`>la`<Esc>hv`<l
 
+" split the windows horizontally/vertically
+nnoremap <C-w>s <nop>
+nnoremap <C-w>t :split<CR>
+nnoremap <C-w>v :vsplit<CR>
+
 " remove Q
 nnoremap Q <nop>
 
@@ -89,6 +94,10 @@ set incsearch
 set scrolloff=8
 set signcolumn="yes"
 
+
+" case insensitive search
+set smartcase
+set ignorecase
 
 set updatetime=50
 

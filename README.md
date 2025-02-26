@@ -1,57 +1,65 @@
-# Setting up the configuration files
+# Overview
+
+The scripts in the descriptions below (as well as all the scripts in the repo
+itself) assume that the dotfiles directory is placed under the `$HOME`
+directory.
+
+## Set up the configuration files
 
 ```
-cd DOTFILES_DIR
+cd $HOME/dotfiles
 ```
 
-## Tmux 
-
-1. First time setup
+### Tmux 
 
 ```
-echo "source-file $(pwd)/.tmux.conf" >> ~/.tmux.conf
+echo "source-file $HOME/dotfiles/.tmux.conf" >> ~/.tmux.conf
 ```
 
-2. Reloading
-
-```
-tmux source-file ~/.tmux.conf
-```
-
-## Git (setup only once)
+### Git
 
 ```
 git config --global include.path $(pwd)/.gitconfig
+git config --local core.hooksPath .githooks/
 ```
 
-## Vim (setup only once)
+### Vim/Nvim
 
 ```
-echo "source $(pwd)/.vimrc" >> ~/.vimrc
+echo "source $HOME/dotfiles/.vimrc" >> ~/.vimrc
+mkdir -p $HOME/.config
+ln -s $HOME/dotfiles/nvim $HOME/.config/nvim
 ```
 
-## IdeaVim (setup only once)
+### i3wm
 
 ```
-echo "source $(pwd)/.ideavimrc" >> ~/.ideavimrc
+mkdir -p $HOME/.config/i3
+echo "include $HOME/dotfiles/i3config" >> $HOME/.config/i3/config
 ```
 
-## Bash aliases
-
-1. First time setup
+### IdeaVim
 
 ```
-echo "source $(pwd)/.bash_aliases" >> ~/.bash_aliases
+echo "source $HOME/dotfiles/.ideavimrc" >> ~/.ideavimrc
 ```
 
-2. Reloading
+### Bash aliases
 
 ```
-source ~/.bashrc
+echo "source $HOME/dotfiles/.bash_aliases" >> ~/.bash_aliases
 ```
 
-## Yazi
+### Zsh
 
 ```
-ln -s $(readlink -f ~/dotfiles/yazi.toml) $(readlink -f ~/.config/yazi/yazi.toml)
+echo "source $HOME/dotfiles/.zshrc" >> ~/.zshrc
+echo "source $HOME/dotfiles/.zsh_aliases" >> ~/.zsh_aliases
 ```
+
+### Yazi
+
+```
+mkdir -p $HOME/.config/yazi
+ln -s $HOME/dotfiles/yazi.toml $HOME/.config/yazi/yazi.toml
+``
