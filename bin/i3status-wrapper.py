@@ -27,7 +27,6 @@
 import sys
 import json
 import brightness
-import traceback
 
 def get_governor():
     """ Get the current governor for cpu0, assuming all CPUs use the same. """
@@ -75,8 +74,8 @@ if __name__ == '__main__':
                         'name' : 'brightness',
                         'separator_block_width': 25
                     })
-        except:
-            traceback.print_exc()
+        except Exception as e:
+            print(e)
             
         # and echo back new encoded json
         print_line(prefix+json.dumps(j))
