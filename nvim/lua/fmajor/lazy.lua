@@ -35,13 +35,15 @@ require("lazy").setup({
 
     {'nvim-treesitter/nvim-treesitter', build = ':TSUpdate'},
     {'nvim-lua/plenary.nvim'}, -- don't forget to add this one if you don't have it yet!
-    {
-        'ThePrimeagen/harpoon',
-        branch = "harpoon2",
-        dependencies = { "nvim-lua/plenary.nvim" }
-    },
     {'mbbill/undotree'},
-    {'tpope/vim-fugitive'},
+    {
+      'nvim-telescope/telescope-frecency.nvim',
+      -- install the latest stable version
+      version = "*",
+      config = function()
+        require("telescope").load_extension "frecency"
+      end,
+    },
     {'neovim/nvim-lspconfig'},
     {'hrsh7th/cmp-nvim-lsp'},
     {'hrsh7th/nvim-cmp'},
