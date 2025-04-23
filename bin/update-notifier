@@ -1,0 +1,38 @@
+#!/usr/bin/env zsh
+
+N_ID=37
+SECONDS_T=$((24 * 60 * 60))
+ICON="/usr/share/icons/gnome/16x16/apps/system-software-update.png"
+
+seconds_to_hms() {
+    local seconds
+    seconds="$1"
+    s=$(($seconds % 60))
+    seconds=$(($seconds / 60))
+    m=$(($seconds % 60))
+    seconds=$(($seconds / 60))
+    h=$(($seconds % 24))
+    printf "${h}h ${m}m ${s}s"
+}
+
+get_update_time() {
+    grep "Commandline: apt upgrade" -B 1 /var/log/apt/history.log |
+        awk 'BEGIN{RS="--\n"} END{print}' |
+        head -n 1 |
+        cut -d " " -f 2-4 |
+        xargs -i date -d {} +%s
+}
+
+main() {
+    update_t=$(get_update_time)
+    seconds=$(($(date +%s) - $update_t))
+    if [[ "$seconds" -gt "$SECONDS_T" ]]; then
+        diff=$(($seconds - $SECONDS_T))
+        diff_txt=$(seconds_to_hms $diff)
+
+        updated_at=$(date -d "@${update_t}" '+%Y-%m-%d %H:%M:%S')
+        notify-send -u normal -r $N_ID -t 0 -i $ICON "Please update your system." "Last update was on $updated_at ($diff_txt ago)."
+    fi
+}
+
+main
