@@ -60,6 +60,7 @@ require("lazy").setup({
         },
     },
     {'williamboman/mason.nvim'},
+    {'mfussenegger/nvim-lint'},
     {'williamboman/mason-lspconfig.nvim'},
     {
         'folke/lazydev.nvim',

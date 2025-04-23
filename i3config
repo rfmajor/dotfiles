@@ -223,3 +223,4 @@ bar {
 exec_always --no-startup-id "picom -b --vsync"
 exec 'setxkbmap -layout us,pl'
 exec "setxkbmap -option 'grp:alt_shift_toggle'"
+exec "dunst"
