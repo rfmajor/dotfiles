@@ -5,7 +5,8 @@ SECONDS_T=$((24 * 60 * 60))
 ICON="/usr/share/icons/gnome/16x16/apps/system-software-update.png"
 
 seconds_to_hms() {
-    local seconds
+    local seconds s m h
+
     seconds="$1"
     s=$(($seconds % 60))
     seconds=$(($seconds / 60))
@@ -24,14 +25,19 @@ get_update_time() {
 }
 
 main() {
-    update_t=$(get_update_time)
-    seconds=$(($(date +%s) - $update_t))
-    if [[ "$seconds" -gt "$SECONDS_T" ]]; then
-        diff=$(($seconds - $SECONDS_T))
-        diff_txt=$(seconds_to_hms $diff)
+    local update_t diff_t updated_at diff_txt update_msg
 
-        updated_at=$(date -d "@${update_t}" '+%Y-%m-%d %H:%M:%S')
-        notify-send -u normal -r $N_ID -t 0 -i $ICON "Please update your system." "Last update was on $updated_at ($diff_txt ago)."
+    update_t=$(get_update_time)
+    diff_t=$(($(date +%s) - $update_t))
+    updated_at=$(date -d "@${update_t}" '+%Y-%m-%d %H:%M:%S')
+
+    diff_txt=$(seconds_to_hms $diff_t)
+    update_msg="Last update was on $updated_at ($diff_txt ago)."
+
+    printf "$update_msg\n"
+
+    if [[ "$seconds" -gt "$SECONDS_T" ]]; then
+        notify-send -u normal -r $N_ID -t 0 -i $ICON "Please update your system." $update_msg
     fi
 }
 
