@@ -4,6 +4,14 @@ N_ID=37
 SECONDS_T=$((24 * 60 * 60))
 ICON="/usr/share/icons/gnome/16x16/apps/system-software-update.png"
 
+if [[ -z $DBUS_SESSION_BUS_ADDRESS ]]; then
+    eval "export $(egrep -z DBUS_SESSION_BUS_ADDRESS /proc/$(pgrep -u $LOGNAME gdm-x-session)/environ)"
+fi
+
+if [[ -z $DISPLAY ]]; then
+    export DISPLAY=:0
+fi
+
 seconds_to_hms() {
     local seconds minutes hours s m
 
