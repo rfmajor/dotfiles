@@ -2,6 +2,7 @@
 
 " MAPPINGS (origin: nvim/lua/fmajor/remap.lua)
 
+nnoremap <leader>pv ":Ex"
 let g:mapleader = " "
 let g:maplocalleader = "\\"
 
