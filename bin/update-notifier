@@ -33,10 +33,14 @@ get_update_time() {
         xargs -i date -d {} +%s
 }
 
+get_update_time_v2() {
+    cat $HOME/.scripts/last_update
+}
+
 main() {
     local update_t diff_t updated_at diff_txt update_msg
 
-    update_t=$(get_update_time)
+    update_t=$(get_update_time_v2)
     diff_t=$(($(date +%s) - $update_t))
     updated_at=$(date -d "@${update_t}" '+%Y-%m-%d %H:%M:%S')
 
