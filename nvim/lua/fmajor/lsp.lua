@@ -35,4 +35,4 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 require('lspconfig').pyright.setup({})
 require('lspconfig').lua_ls.setup({})
-require('lspconfig').jdtls.setup({})
+-- require('lspconfig').jdtls.setup({})

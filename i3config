@@ -246,3 +246,5 @@ gaps outer 3
 exec 'setxkbmap -layout us,pl'
 exec "setxkbmap -option 'grp:alt_shift_toggle'"
 exec "dunst"
+exec --no-startup-id sh ~/.fehbg
+
