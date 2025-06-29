@@ -73,4 +73,5 @@ require("lazy").setup({
             },
         },
     },
+    {'itspriddle/vim-shellcheck'}
 })
