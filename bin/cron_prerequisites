@@ -1,0 +1,9 @@
+#!/bin/sh
+
+if [ -z "$DBUS_SESSION_BUS_ADDRESS" ]; then
+    eval "export $(grep -E -z DBUS_SESSION_BUS_ADDRESS /proc/$(pgrep -u "$LOGNAME" gdm-x-session)/environ)"
+fi
+
+if [ -z "$DISPLAY" ]; then
+    export DISPLAY=:0
+fi
