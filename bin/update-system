@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+N_ID=37
+ICON=/home/fmajor/icons/must_have_icon_set/Check/Check_16x16.png
+
+sudo apt update
+sudo apt list --upgradable
+sudo apt upgrade
+
+cd "$HOME/picom" && git pull 
+cd "$HOME/yazi" && git pull 
+cd "$HOME/websocat" && git pull 
+cd "$HOME/zsh-syntax-highlighting" && git pull 
+cd "$HOME/mutt_color_themes" && git pull 
+cd "$HOME/keyd" && git pull 
+
+date +%s > "$HOME/.scripts/last_update"
+notify-send -u normal -r $N_ID -t 5000 -i $ICON "System updated successfully!"

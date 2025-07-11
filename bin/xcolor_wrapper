@@ -1,0 +1,3 @@
+#!/usr/bin/sh
+
+xcolor | xclip -r -sel clip

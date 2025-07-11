@@ -1,0 +1,16 @@
+#!/bin/sh
+
+. "$HOME/dotfiles/bin/cron_prerequisites"
+
+BATTERY=$(upower -d | sed -rn '/percentage/ {s/.*\s([0-9]+).*/\1/g; p}' | uniq)
+STATE=$(upower -d | sed -rn '/state/ {s/state://g; p}' | uniq | xargs)
+ICON=/usr/share/icons/gnome/16x16/status/battery-caution.png
+N_ID=21
+
+if [ "$BATTERY" -lt 20 ]; then
+    if [ "$STATE" = "discharging" ]; then
+        notify-send -u critical -r $N_ID -t 0 -i $ICON "Battery low (${BATTERY}%)" "Connect the device to the power supply"
+    else
+        notify-send -u normal -r $N_ID -t 1 "Done"
+    fi
+fi
