@@ -26,6 +26,7 @@ nnoremap <leader>md va{<esc>`>mz`<Vap<esc>`<V`zdkVd
 " Horizontal scroll and centering
 nnoremap <C-l> 40l
 nnoremap <C-h> 40h
+map <leader>1 :action SelectInProjectView<CR>
 
 "" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
 "" Map \r to the Reformat Code action
