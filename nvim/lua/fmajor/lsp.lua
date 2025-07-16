@@ -33,6 +33,20 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
+vim.diagnostic.config({
+    virtual_text = {
+        severity = {
+            min = vim.diagnostic.severity.WARN,
+        },
+        spacing = 2,
+        prefix = "●",
+    },
+    signs = true,
+    underline = true,
+    update_in_insert = false,
+    severity_sort = true,
+})
+
 require('lspconfig').pyright.setup({})
 require('lspconfig').lua_ls.setup({})
 require('lspconfig').bashls.setup({})
