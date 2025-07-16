@@ -36,14 +36,14 @@ vim.api.nvim_create_autocmd('LspAttach', {
 vim.diagnostic.config({
     virtual_text = {
         severity = {
-            min = vim.diagnostic.severity.WARN,
+            min = vim.diagnostic.severity.INFO,
         },
         spacing = 2,
         prefix = "●",
     },
     signs = true,
     underline = true,
-    update_in_insert = false,
+    update_in_insert = true,
     severity_sort = true,
 })
 
