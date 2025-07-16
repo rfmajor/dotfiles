@@ -1,7 +1,7 @@
-#!/usr/bin/bash
+#!/bin/sh
 
 switch_to() {
-    if [[ -z $TMUX ]]; then
+    if [ -z $TMUX ]; then
         tmux attach-session -t $1
     else
         tmux switch-client -t $1
@@ -20,20 +20,20 @@ hydrate() {
     fi
 }
 
-if [[ $# -eq 1 ]]; then
+if [ $# -eq 1 ]; then
     selected=$1
 else
     selected=$(find ~/ -mindepth 1 -maxdepth 1 -type d | fzf)
 fi
 
-if [[ -z $selected ]]; then
+if [ -z $selected ]; then
     exit 0
 fi
 
 selected_name=$(basename "$selected" | tr . _)
 tmux_running=$(pgrep tmux)
 
-if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
+if [ -z $TMUX ] && [ -z $tmux_running ]; then
     tmux new-session -s $selected_name -c $selected
 #    hydrate $selected_name $selected
     exit 0

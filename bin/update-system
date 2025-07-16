@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 N_ID=37
 ICON=/home/fmajor/icons/must_have_icon_set/Check/Check_16x16.png

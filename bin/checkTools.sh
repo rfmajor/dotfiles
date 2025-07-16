@@ -1,4 +1,4 @@
-#!/usr/bin/zsh
+#!/bin/sh
 
 TOOLS_FILE=tools
 RED=$(tput setaf 1)
