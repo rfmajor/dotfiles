@@ -19,6 +19,8 @@ echo "source-file $HOME/dotfiles/.tmux.conf" >> ~/.tmux.conf
 ### Git
 
 ```
+mkdir -p $HOME/dotfiles/.githooks
+cp $HOME/dotfiles/bin/pre-commit $HOME/dotfiles/.githooks/pre-commit
 git config --global include.path $(pwd)/.gitconfig
 git config --local core.hooksPath .githooks/
 ```
