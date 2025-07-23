@@ -1,16 +1,19 @@
 [alias]
 	s = "status"
-	l = log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --color=always --date=human
+	lp = log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --color=always --date=human
     # tiny
-    lt = "l -5"
-    # medium
-    lm = "l -20"
-    # big
-    lb = "l -40"
+    l = "lp -10"
 	d = diff --stat
+    # Rollback specific files until commit
+    # 1 - commit to rollback to
+    # 2.. - files
 	rollback = "!f() { \
 	  git checkout $1 -- ${@:2}; \
 	}; f"
+    # Use fzf to choose from branches
+    sw = "!f() { \
+      git branch ${@} | sed -re 's/\\*//g' -e 's/^ *//g' | fzf --height=70% --layout=reverse | xargs -I {} git switch {}; \
+    }; f"
    amd = commit --amend --no-edit
 [core]
 	editor = vim
