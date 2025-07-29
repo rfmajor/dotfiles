@@ -6,7 +6,7 @@
 
 # Change wallpaper
 wallpaperFilename=$(readlink -f "$WALLPAPER")
-wallpaperScriptPart='tell application "Finder" to set desktop picture to POSIX file'
+wallpaperScriptPart='tell application "System Events" to tell every desktop to set picture to'
 wallpaperScript="${wallpaperScriptPart} \"${wallpaperFilename}\""
 osascript -e "$wallpaperScript"
 

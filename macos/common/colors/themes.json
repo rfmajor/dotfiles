@@ -15,14 +15,40 @@
     {
         "name": "Animals",
         "wallpaper": "$HOME/dotfiles/img/animals.png",
-        "barIconFont": "DepartureMono Nerd Font:Regular:17.0",
-        "barLabelFont": "DepartureMono Nerd Font:Regular:14.0",
+        "barIconFont": "JetBrainsMono Nerd Font Mono:Bold:17.0",
+        "barLabelFont": "JetBrainsMono Nerd Font Mono:Bold:14.0",
         "colors": {
             "background": "0xCC403026",
             "surface": "0xFF8C543F",
             "overlay": "0xFFA68F63",
             "foreground": "0xFFF2CD5E",
             "accent": "0xFFF28B30"
+        }
+    },
+    {
+        "name": "Dark Side Of The Moon",
+        "wallpaper": "$HOME/dotfiles/img/dark_side_of_the_moon.png",
+        "barIconFont": "JetBrainsMono Nerd Font Mono:Bold:17.0",
+        "barLabelFont": "JetBrainsMono Nerd Font Mono:Bold:14.0",
+        "colors": {
+            "background": "0xCC0D0D0D",
+            "surface": "0xFF28094f",
+            "overlay": "0xFF522803",
+            "foreground": "0xFFF27405",
+            "accent": "0xFFF20505"
+        }
+    },
+    {
+        "name": "F# A# Infinity",
+        "wallpaper": "$HOME/dotfiles/img/f_a_infinity.png",
+        "barIconFont": "JetBrainsMono Nerd Font Mono:Bold:17.0",
+        "barLabelFont": "JetBrainsMono Nerd Font Mono:Bold:14.0",
+        "colors": {
+            "background": "0xFF060826",
+            "surface": "0xFF202254",
+            "overlay": "0xFF69758C",
+            "foreground": "0xFF8593A6",
+            "accent": "0xFF0b5d7d"
         }
     }
 ]
