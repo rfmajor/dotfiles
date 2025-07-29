@@ -1,0 +1,13 @@
+#!/bin/bash
+
+. "$HOME/dotfiles/macos/common/colors/current"
+
+options=(
+	style=round
+	width=5.0
+	hidpi=off
+	active_color="$FOREGROUND"
+	inactive_color="$OVERLAY"
+)
+
+borders "${options[@]}"
