@@ -73,5 +73,6 @@ require("lazy").setup({
             },
         },
     },
-    {'itspriddle/vim-shellcheck'}
+    {'itspriddle/vim-shellcheck'},
+    {'m4xshen/autoclose.nvim'},
 })
