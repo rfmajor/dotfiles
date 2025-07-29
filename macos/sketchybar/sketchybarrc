@@ -113,6 +113,7 @@ sketchybar \
             ${right_items[@]} \
         --subscribe battery system_woke power_source_change \
     --add item wifi right \
+    --add item wifi_popup popup.wifi \
         --set wifi update_freq=120 script="$PLUGIN_DIR/wifi.sh" \
             ${right_items[@]} \
         --subscribe wifi wifi_change
