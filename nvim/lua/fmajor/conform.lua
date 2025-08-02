@@ -12,5 +12,7 @@ require("conform").setup({
 		json = { "prettier" },
 		yaml = { "prettier" },
 		markdown = { "prettier" },
+		bash = { "shellcheck" },
+		sh = { "shfmt" },
 	},
 })
