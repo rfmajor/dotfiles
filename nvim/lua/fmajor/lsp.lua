@@ -47,8 +47,18 @@ vim.diagnostic.config({
     severity_sort = true,
 })
 
-require('lspconfig').pyright.setup({})
-require('lspconfig').lua_ls.setup({})
-require('lspconfig').bashls.setup({})
-require('lspconfig').ts_ls.setup({})
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
+require('lspconfig').pyright.setup({
+    capabilities = capabilities
+})
+require('lspconfig').lua_ls.setup({
+    capabilities = capabilities
+})
+require('lspconfig').bashls.setup({
+    capabilities = capabilities
+})
+require('lspconfig').ts_ls.setup({
+    capabilities = capabilities
+})
 -- require('lspconfig').jdtls.setup({})
