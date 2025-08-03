@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-. "$HOME/dotfiles/macos/common/colors/current"
+. "$HOME/dotfiles/common/themes/current"
 
 # make sure it's executable with:
 # chmod +x ~/.config/sketchybar/plugins/aerospace.sh

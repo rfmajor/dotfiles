@@ -1,6 +1,6 @@
 #!/bin/sh
 
-. "$HOME/dotfiles/macos/common/colors/current"
+. "$HOME/dotfiles/common/themes/current"
 
 PERCENTAGE="$(pmset -g batt | grep -Eo "\d+%" | cut -d% -f1)"
 CHARGING="$(pmset -g batt | grep 'AC Power')"

@@ -1,0 +1,9 @@
+THEME_NAME="Bonfire Dark"
+BACKGROUND="0xCC0D0D0D"
+SURFACE="0xFF192E59"
+OVERLAY="0xFF3772A6"
+FOREGROUND="0xFF59C1D9"
+ACCENT="0xFFBF452A"
+WALLPAPER=$HOME/dotfiles/img/bonfire.png
+BAR_ICON_FONT="DepartureMono Nerd Font:Regular:17.0"
+BAR_LABEL_FONT="DepartureMono Nerd Font:Regular:14.0"

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-. "$HOME/dotfiles/macos/common/colors/current"
+. "$HOME/dotfiles/common/themes/current"
 
 NETWORK=$(ipconfig getsummary "$(networksetup -listallhardwareports | awk '/Wi-Fi|AirPort/{getline; print $NF}')" | grep '  SSID : ' | awk -F ': ' '{print $2}')
 if [ "$NETWORK" = "" ]; then

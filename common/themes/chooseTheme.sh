@@ -1,7 +1,7 @@
 #!/bin/sh
 
-THEMES_FILE="$HOME/dotfiles/macos/common/colors/themes.json"
-CURRENT_THEME_FILE="$HOME/dotfiles/macos/common/colors/current"
+THEMES_FILE="$HOME/dotfiles/common/themes/themes.json"
+CURRENT_THEME_FILE="$HOME/dotfiles/common/themes/current"
 
 theme=$(jq -r ".[].name" "$THEMES_FILE" |
     fzf --height=70% --layout=reverse)
@@ -10,7 +10,7 @@ if [ -z "$theme" ]; then
     exit 1
 fi
 
-echo "THEME_NAME=\"$theme\"" > "$CURRENT_THEME_FILE"
+echo "THEME_NAME=\"$theme\"" >"$CURRENT_THEME_FILE"
 jq -r --arg name "$theme" '.[] | select(.name == $name) | .colors | to_entries[] | "\(.key | ascii_upcase)=\"\(.value)\""' \
     "$THEMES_FILE" >> "$CURRENT_THEME_FILE"
 

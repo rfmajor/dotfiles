@@ -12,7 +12,7 @@ PLUGIN_DIR="$CONFIG_DIR/plugins"
 # If you are looking for other colors, see the color picker:
 # https://felixkratz.github.io/SketchyBar/config/tricks#color-picker
 
-. "$HOME/dotfiles/macos/common/colors/current"
+. "$HOME/dotfiles/common/themes/current"
 
 sketchybar --bar position=top height=36 blur_radius=30 color=$BACKGROUND
 
@@ -113,10 +113,12 @@ sketchybar \
             ${right_items[@]} \
         --subscribe battery system_woke power_source_change \
     --add item wifi right \
-    --add item wifi_popup popup.wifi \
         --set wifi update_freq=120 script="$PLUGIN_DIR/wifi.sh" \
+            click_script="$PLUGIN_DIR/wifi_popup.sh" \
             ${right_items[@]} \
-        --subscribe wifi wifi_change
+        --subscribe wifi wifi_change \
+    --add item wifi_popup popup.wifi \
+        --set wifi_popup script="$PLUGIN_DIR/volume.sh"
 
 ##### Force all scripts to run the first time (never do this in a script) #####
 sketchybar --update

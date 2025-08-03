@@ -1,8 +1,8 @@
 #!/bin/sh
 
-"$HOME/dotfiles/macos/common/colors/chooseTheme.sh" || exit 1
+"$HOME/dotfiles/common/themes/chooseTheme.sh" || exit 1
 
-. "$HOME/dotfiles/macos/common/colors/current"
+. "$HOME/dotfiles/common/themes/current"
 
 # Change wallpaper
 wallpaperFilename=$(readlink -f "$WALLPAPER")
