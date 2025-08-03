@@ -111,7 +111,7 @@ sketchybar \
             ${right_items[@]} \
     --add item volume right \
         --set volume script="$PLUGIN_DIR/volume.sh" \
-            click_script="$PLUGIN_DIR/volume_popup.sh" \
+            click_script="$PLUGIN_DIR/popup.sh volume" \
             ${right_items[@]} \
         --subscribe volume volume_change \
     --add item volume_popup popup.volume \
@@ -122,7 +122,7 @@ sketchybar \
         --subscribe battery system_woke power_source_change \
     --add item wifi right \
         --set wifi update_freq=180 script="$PLUGIN_DIR/wifi.sh" \
-            click_script="$PLUGIN_DIR/wifi_popup.sh" \
+            click_script="$PLUGIN_DIR/popup.sh wifi" \
             ${right_items[@]} \
         --subscribe wifi wifi_change \
     --add item wifi_popup_download popup.wifi \
