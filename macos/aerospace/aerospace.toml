@@ -128,7 +128,7 @@ exec-on-workspace-change = ['/bin/bash', '-c',
     outer.top = [
       { monitor."built-in" = 4 },
       { monitor."hp" = 36 },
-      4 ]
+      36 ]
 
 [[on-window-detected]]
     if.app-id = 'com.googlecode.iterm2'
