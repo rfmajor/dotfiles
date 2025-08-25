@@ -1,5 +1,6 @@
 [opener]
 edit = [{ run = 'nvim "$@"', block = true }]
+
 [mgr]
 ratio = [1, 3, 5]
 show_hidden = true

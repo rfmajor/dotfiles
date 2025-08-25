@@ -63,5 +63,6 @@ echo "source $HOME/dotfiles/.zsh_aliases" >> ~/.zsh_aliases
 
 ```
 mkdir -p $HOME/.config/yazi
-ln -s $HOME/dotfiles/yazi.toml $HOME/.config/yazi/yazi.toml
+ln -s $HOME/dotfiles/yazi/yazi.toml $HOME/.config/yazi/yazi.toml
+ln -s $HOME/dotfiles/yazi/theme.toml $HOME/.config/yazi/theme.toml
 ``
