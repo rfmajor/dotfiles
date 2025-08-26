@@ -67,4 +67,10 @@ require("lspconfig").bashls.setup({
 require("lspconfig").ts_ls.setup({
 	capabilities = capabilities,
 })
+require("lspconfig").postgres_lsp.setup({
+	capabilities = capabilities,
+})
+require("lspconfig").terraformls.setup({
+	capabilities = capabilities,
+})
 -- require('lspconfig').jdtls.setup({})
