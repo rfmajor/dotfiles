@@ -19,3 +19,7 @@
 	editor = vim
 [init]
 	defaultBranch = main
+[diff]
+    tool = nvimdiff
+[difftool]
+	prompt = false
