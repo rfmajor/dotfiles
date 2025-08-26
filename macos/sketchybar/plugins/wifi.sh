@@ -2,7 +2,9 @@
 
 . "$HOME/dotfiles/common/themes/current"
 
-NETWORK=$(ipconfig getsummary "$(networksetup -listallhardwareports | awk '/Wi-Fi|AirPort/{getline; print $NF}')" | grep '  SSID : ' | awk -F ': ' '{print $2}')
+NETWORK=$(system_profiler SPAirPortDataType | awk '/Current Network/ {getline;$1=$1; gsub(":",""); print;exit}')
+# Not working recently
+# NETWORK=$(ipconfig getsummary "$(networksetup -listallhardwareports | awk '/Wi-Fi|AirPort/{getline; print $NF}')" | grep '  SSID : ' | awk -F ': ' '{print $2}')
 if [ "$NETWORK" = "" ]; then
     ICON="󰖪 "
     NETWORK="No connection"
