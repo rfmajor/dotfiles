@@ -5,6 +5,11 @@ alias ll='ls -l'
 alias la='ls -A'
 alias l='ls -CF'
 alias gpclone="$HOME/dotfiles/bin/clonePrivateRepo"
+alias n="$HOME/dotfiles/bin/notes.sh -l"
+alias nn="$HOME/dotfiles/bin/notes.sh -c"
+alias nd="$HOME/dotfiles/bin/notes.sh -d"
+alias ns="$HOME/dotfiles/bin/notes.sh -s"
+alias ngc="$HOME/dotfiles/bin/notes.sh -gc"
 
 # === FUNCTIONS === 
 
