@@ -21,5 +21,13 @@
 	defaultBranch = main
 [diff]
     tool = nvimdiff
+[merge]
+    tool = nvimdiff
 [difftool]
 	prompt = false
+    # Be able to abort all diffs with `:cq` or `:cquit`
+    trustExitCode = true
+[mergetool]
+	prompt = false
+    # Be able to abort all diffs with `:cq` or `:cquit`
+    trustExitCode = true
