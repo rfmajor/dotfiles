@@ -3,4 +3,5 @@
 **/.githooks/**
 **/common/themes/current
 **/*_popup_timestamp
-yazi/flavours/
+**/yazi/flavors/
+**/yazi/package.toml
