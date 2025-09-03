@@ -25,6 +25,7 @@ if [ $# -eq 1 ]; then
 else
     selected_name=$(fd . --base-directory ~/ -u -d 1 -t d --format "{/}" | fzf --tmux=70%)
     selected="$HOME/$selected_name"
+    selected_name=$(echo "$selected_name" | tr . _)
 fi
 
 if [ -z "$selected_name" ]; then
