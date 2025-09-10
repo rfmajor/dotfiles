@@ -4,6 +4,21 @@ NOTES_DIR="$HOME/notes"
 LAST_NOTE_FILE="$HOME/notes/last-note"
 EDITOR="nvim"
 
+init_git_repo() {
+    cd "$NOTES_DIR" || return 1
+    git init
+    echo "$(basename "$LAST_NOTE_FILE")" >> .gitignore
+    git add .
+    git commit -m "Initial commit"
+}
+
+# args: 1 - message
+commit_update() {
+    cd "$NOTES_DIR" || return 1
+    git add . > /dev/null 2>&1 
+    git commit -m "$1" > /dev/null 2>&1 
+}
+
 create_note() {
     filename="$NOTES_DIR/$1.md"
     filename_base=$(basename "$filename")
@@ -23,17 +38,19 @@ get_git_branch_and_repo() {
 }
 
 delete_note() {
-    filename="$NOTES_DIR/$1.md"
+    filename="$NOTES_DIR/$1"
     filename_base=$(basename "$filename")
     if [ -f "$filename" ]; then
         rm -f "$filename"
         echo "$filename_base removed"
+        return 0
     else
         echo "$filename_base not found"
+        return 1
     fi
 }
 
-open_note() {
+edit_note() {
     filename="$1"
     filename_base=$(basename "$filename")
     if [ ! -f "$filename" ]; then
@@ -68,6 +85,11 @@ main() {
         mkdir -p "$NOTES_DIR"
     fi
 
+    if [ ! -d "$NOTES_DIR/.git" ]; then
+        echo "No git repo found under $NOTES_DIR, initializing a new one"
+        init_git_repo
+    fi
+
     case "$1" in
         "-c")
             if [ "$#" -lt 2 ]; then
@@ -82,13 +104,15 @@ main() {
             fi
             create_note "$note_name" || exit 1
             filename="$NOTES_DIR/$note_name.md"
-            open_note "$filename" || exit 1
+            edit_note "$filename" || exit 1
+            commit_update "Create $(basename "$filename")"
             ;;
         "-s")
             selected_note=$(select_note)
             if [ -n "$selected_note" ]; then
                 filename="$NOTES_DIR/$selected_note"
-                open_note "$filename" || exit 1
+                edit_note "$filename" || exit 1
+                commit_update "Update $(basename "$filename")"
             fi
             ;;
         "-l")
@@ -97,20 +121,28 @@ main() {
                 echo "No last note found (maybe it was deleted?)"
                 exit 1
             fi
-            open_note "$last_note" || exit 1
+            edit_note "$last_note" || exit 1
+            commit_update "Update $(basename "$last_note")"
             ;;
         "-d")
             if [ "$#" -lt 2 ]; then
-                echo "Note name is missing"
+                echo "Select note to delete: "
+                selected_note=$(select_note)
+            else
+                selected_note="$2.md"
+            fi
+            if [ -z "$selected_note" ]; then
                 exit 1
             fi
-            delete_note "$2" || exit 1
+            delete_note "$selected_note" || exit 1
+            commit_update "Delete $(basename "$selected_note")"
             ;;
         "-gc")
             git_branch=$(get_git_branch_and_repo) || exit 1
             create_note "$git_branch" || exit 1
             filename="$NOTES_DIR/$git_branch.md"
-            open_note "$filename" || exit 1
+            edit_note "$filename" || exit 1
+            commit_update "Create $(basename "$filename")"
             ;;
         *)
             echo "Unknown option"
