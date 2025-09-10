@@ -47,9 +47,10 @@ open_note() {
 
 get_last_note() {
     if [ ! -f "$LAST_NOTE_FILE" ]; then
-        exit 1
+        echo ""
+    else
+        readlink -f "$LAST_NOTE_FILE"
     fi
-    readlink -f "$LAST_NOTE_FILE"
 }
 
 select_note() {
@@ -70,11 +71,17 @@ main() {
     case "$1" in
         "-c")
             if [ "$#" -lt 2 ]; then
-                echo "Note name is missing"
-                exit 1
+                printf "Note name: " >&2
+                read -r note_name
+                if [ -z "$note_name" ]; then
+                    echo "Note name is mandatory"
+                    exit 1
+                fi
+            else
+                note_name="$2"
             fi
-            create_note "$2" || exit 1
-            filename="$NOTES_DIR/$2.md"
+            create_note "$note_name" || exit 1
+            filename="$NOTES_DIR/$note_name.md"
             open_note "$filename" || exit 1
             ;;
         "-s")
@@ -86,6 +93,10 @@ main() {
             ;;
         "-l")
             last_note=$(get_last_note) || exit 1
+            if [ -z "$last_note" ]; then
+                echo "No last note found (maybe it was deleted?)"
+                exit 1
+            fi
             open_note "$last_note" || exit 1
             ;;
         "-d")
