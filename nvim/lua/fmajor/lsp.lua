@@ -73,4 +73,7 @@ require("lspconfig").postgres_lsp.setup({
 require("lspconfig").terraformls.setup({
 	capabilities = capabilities,
 })
+require("lspconfig").marksman.setup({
+	capabilities = capabilities,
+})
 -- require('lspconfig').jdtls.setup({})
