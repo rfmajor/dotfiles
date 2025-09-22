@@ -71,6 +71,9 @@ exec-on-workspace-change = ['/bin/bash', '-c',
     # should be supported at all https://github.com/nikitabobko/AeroSpace/issues/5
     # cmd-alt-a = 'focus parent'
 
+    cmd-alt-shift-c = 'reload-config'
+
+    # Variant for numeric keys above the querty row
     cmd-alt-1 = 'workspace 1'
     cmd-alt-2 = 'workspace 2'
     cmd-alt-3 = 'workspace 3'
@@ -93,7 +96,18 @@ exec-on-workspace-change = ['/bin/bash', '-c',
     cmd-alt-shift-9 = 'move-node-to-workspace 9'
     cmd-alt-shift-0 = 'move-node-to-workspace 10'
 
-    cmd-alt-shift-c = 'reload-config'
+    # Variant for numeric keys under the nm,.jkluio keys
+    cmd-alt-ctrl-m = 'workspace 1'
+    cmd-alt-ctrl-comma = 'workspace 2'
+    cmd-alt-ctrl-period = 'workspace 3'
+    cmd-alt-ctrl-j = 'workspace 4'
+    cmd-alt-ctrl-k = 'workspace 5'
+    cmd-alt-ctrl-l = 'workspace 6'
+    cmd-alt-ctrl-u = 'workspace 7'
+    cmd-alt-ctrl-i = 'workspace 8'
+    cmd-alt-ctrl-o = 'workspace 9'
+    cmd-alt-ctrl-n = 'workspace 10'
+    #
 
     cmd-alt-r = 'mode resize'
 
