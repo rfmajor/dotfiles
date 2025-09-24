@@ -23,7 +23,7 @@ hydrate() {
 if [ $# -eq 1 ]; then
     selected=$1
 else
-    selected_name=$(fd . --base-directory ~/ -u -d 1 -t d --format "{/}" | fzf --tmux=70%)
+    selected_name=$(fd . --base-directory ~/ -u -d 1 -td -tl --format "{/}" | fzf --tmux=70%)
     selected="$HOME/$selected_name"
     selected_name=$(echo "$selected_name" | tr . _)
 fi
