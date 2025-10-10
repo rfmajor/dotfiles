@@ -45,6 +45,7 @@ bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
+bindkey -s '^F' '$HOME/dotfiles/bin/findInFiles.sh\n'
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
