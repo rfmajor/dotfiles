@@ -1,6 +1,6 @@
 #!/bin/sh
 
-choice=$(sk -i -c 'rg -n {} --color=always' --ansi)
+choice=$(sk -i -c 'rg -n "{}" --color=always' --ansi)
 if [ -n "$choice" ]; then
     filename=$(echo "$choice" | cut --delimiter ':' --fields 1)
     line=$(echo "$choice" | cut --delimiter ':' --fields 2)
