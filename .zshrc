@@ -45,7 +45,15 @@ bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
-bindkey -s '^F' '$HOME/dotfiles/bin/findInFiles.sh\n'
+
+function find_in_files() {
+    $HOME/dotfiles/bin/findInFiles.sh
+    zle reset-prompt
+}
+
+zle -N find_in_files
+
+bindkey '^F' find_in_files
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
