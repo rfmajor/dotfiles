@@ -55,6 +55,8 @@ zle -N find_in_files
 
 bindkey '^F' find_in_files
 
+bindkey -s '^V' 'vim **^I'
+
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
