@@ -5,6 +5,7 @@ RG_PREFIX="rg --column --line-number --smart-case --no-heading --color=always"
 
 choice=$(fzf --bind "start,change:reload:$RG_PREFIX {q} || true" \
     --bind "enter:execute-silent[echo {q} > $LAST_QUERY_CACHE &]+accept" \
+    --bind "ctrl-l:clear-query" \
     --ansi --disabled --query "$(cat "$LAST_QUERY_CACHE" 2> /dev/null)")
 
 if [ -n "$choice" ]; then
