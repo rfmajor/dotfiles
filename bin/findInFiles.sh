@@ -1,17 +1,36 @@
 #!/bin/sh
 
 LAST_QUERY_CACHE="$HOME/.cache/last_fzf_query"
+CACHE_EXPIRY_SECONDS=60
 QUICK_FIX_CACHE="$HOME/.cache/quickfix"
 RG_PREFIX="rg --column --line-number --smart-case --no-heading --color=always"
 
 SINGLE="SINGLE"
 QUICKFIX="QUICKFIX"
 
+get_cached_query() {
+    query_with_timestamp=$(cat "$LAST_QUERY_CACHE" 2> /dev/null)
+    if [ -z "$query_with_timestamp" ]; then
+        echo ""
+        return 0
+    fi
+
+    current_timestamp=$(date +%s)
+    query=$(echo "$query_with_timestamp" | cut -d ',' -f 1)
+    timestamp=$(echo "$query_with_timestamp" | cut -d ',' -f 2)
+    if [ $((current_timestamp - timestamp)) -gt "$CACHE_EXPIRY_SECONDS" ]; then
+        echo "" > "$LAST_QUERY_CACHE"
+        echo ""
+        return 0
+    fi
+    echo "$query"
+}
+
 choice=$(fzf --bind "start,change:reload:$RG_PREFIX {q} || true" \
-    --bind "enter:execute-silent[echo {q} > $LAST_QUERY_CACHE &]+accept" \
+    --bind "enter:execute-silent[echo {q},\$(date +%s) > $LAST_QUERY_CACHE &]+accept" \
     --bind "ctrl-l:clear-query" \
-    --bind "ctrl-q:select-all+accept" \
-    --multi --ansi --disabled --query "$(cat "$LAST_QUERY_CACHE" 2> /dev/null)")
+    --bind "ctrl-q:select-all+execute-silent[echo {q},\$(date +%s) > $LAST_QUERY_CACHE &]+accept" \
+    --multi --ansi --disabled --query "$(get_cached_query)")
 
 if [ -z "$choice" ]; then
     exit 1;
