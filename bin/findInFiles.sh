@@ -30,6 +30,10 @@ choice=$(fzf --bind "start,change:reload:$RG_PREFIX {q} || true" \
     --bind "enter:execute-silent[echo {q},\$(date +%s) > $LAST_QUERY_CACHE &]+accept" \
     --bind "ctrl-l:clear-query" \
     --bind "ctrl-q:select-all+execute-silent[echo {q},\$(date +%s) > $LAST_QUERY_CACHE &]+accept" \
+    --color "hl:-1:underline,hl+:-1:underline:reverse" \
+    --delimiter ':' \
+    --preview "$RG_PREFIX {q} | bat --color=always {1} --highlight-line {2}" \
+    --preview-window 'right,60%,border-bottom,+{2}+3/3,~3' \
     --multi --ansi --disabled --query "$(get_cached_query)")
 
 if [ -z "$choice" ]; then
