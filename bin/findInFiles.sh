@@ -34,7 +34,7 @@ choice=$(fzf --bind "start,change:reload:$RG_PREFIX {q} || true" \
     --delimiter ':' \
     --preview "$RG_PREFIX {q} | bat --color=always {1} --highlight-line {2} 2> /dev/null" \
     --preview-window 'top,40%,border-bottom,+{2}+3/3,~3' \
-    --multi --ansi --disabled --query "$(get_cached_query)")
+    --multi --style full --ansi --disabled --query "$(get_cached_query)")
 
 if [ -z "$choice" ]; then
     exit 1;
