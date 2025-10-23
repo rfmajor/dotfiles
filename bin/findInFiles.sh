@@ -3,7 +3,7 @@
 LAST_QUERY_CACHE="$HOME/.cache/last_fzf_query"
 CACHE_EXPIRY_SECONDS=60
 QUICK_FIX_CACHE="$HOME/.cache/quickfix"
-RG_PREFIX="rg --column --line-number --smart-case --no-heading --color=always"
+RG_PREFIX="rg --column --line-number --smart-case --no-heading --hidden --color=always"
 
 SINGLE="SINGLE"
 QUICKFIX="QUICKFIX"
@@ -32,8 +32,8 @@ choice=$(fzf --bind "start,change:reload:$RG_PREFIX {q} || true" \
     --bind "ctrl-q:select-all+execute-silent[echo {q},\$(date +%s) > $LAST_QUERY_CACHE &]+accept" \
     --color "hl:-1:underline,hl+:-1:underline:reverse" \
     --delimiter ':' \
-    --preview "$RG_PREFIX {q} | bat --color=always {1} --highlight-line {2}" \
-    --preview-window 'right,60%,border-bottom,+{2}+3/3,~3' \
+    --preview "$RG_PREFIX {q} | bat --color=always {1} --highlight-line {2} 2> /dev/null" \
+    --preview-window 'top,40%,border-bottom,+{2}+3/3,~3' \
     --multi --ansi --disabled --query "$(get_cached_query)")
 
 if [ -z "$choice" ]; then

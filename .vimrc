@@ -56,6 +56,10 @@ nnoremap <C-l> 40lzszH
 nnoremap <C-h> 40hzszH
 nnoremap zZ zszH
 
+" quicklist navigation
+nnoremap <A-j> <Cmd>try | cnext | catch | cfirst | catch | endtry<CR>
+nnoremap <A-k> <Cmd>try | cprevious | catch | clast | catch | endtry<CR>
+
 
 
 " SETS (origin: nvim/lua/fmajor/set.lua)
