@@ -76,4 +76,7 @@ require("lspconfig").terraformls.setup({
 require("lspconfig").marksman.setup({
 	capabilities = capabilities,
 })
+require("lspconfig").clangd.setup({
+	capabilities = capabilities,
+})
 -- require('lspconfig').jdtls.setup({})
