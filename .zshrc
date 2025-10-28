@@ -55,7 +55,7 @@ zle -N find_in_files
 
 bindkey '^F' find_in_files
 
-bindkey -s '^V' 'vim **^I'
+# bindkey -s '^V' 'vim **^I'
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
@@ -76,7 +76,7 @@ if [ -f ~/.zsh_aliases ]; then
     . ~/.zsh_aliases
 fi
 
-export FZF_DEFAULT_COMMAND='fd -H' 
+export FZF_DEFAULT_COMMAND='fd . --ignore-file $HOME/dotfiles/.fdignore -u --follow' 
 export FZF_DEFAULT_OPTS="--layout=reverse --style full --height 100% \
     --preview 'if [ ! -d {} ]; then bat --color=always {} 2> /dev/null; else fd . --color=always --ignore-file $HOME/dotfiles/.fdignore -u --follow --base-directory {}; fi' \
     --preview-window 'top,40%,border-bottom,+{2}+3/3,~3'"
@@ -84,3 +84,13 @@ export FZF_DEFAULT_OPTS="--layout=reverse --style full --height 100% \
 _fzf_compgen_path() {
     fd . --ignore-file $HOME/dotfiles/.fdignore -u --follow --base-directory "$1"
 }
+
+function open_file_for_editing() {
+    $HOME/dotfiles/bin/openFileForEditing
+    # zle reset-prompt
+}
+
+zle -N open_file_for_editing
+
+bindkey '^V' open_file_for_editing
+
