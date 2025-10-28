@@ -78,8 +78,9 @@ fi
 
 export FZF_DEFAULT_COMMAND='fd -H' 
 export FZF_DEFAULT_OPTS="--layout=reverse --style full --height 100% \
-    --preview 'if [ ! -d {} ]; then bat --color=always {} 2> /dev/null; else fd . --color=always --base-directory {}; fi' \
+    --preview 'if [ ! -d {} ]; then bat --color=always {} 2> /dev/null; else fd . --color=always --ignore-file $HOME/dotfiles/.fdignore -u --follow --base-directory {}; fi' \
     --preview-window 'top,40%,border-bottom,+{2}+3/3,~3'"
+
 _fzf_compgen_path() {
-  fd --hidden --follow --exclude ".git" . --base-directory "$1"
+    fd . --ignore-file $HOME/dotfiles/.fdignore -u --follow --base-directory "$1"
 }
