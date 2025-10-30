@@ -1,8 +1,0 @@
-#!/bin/sh
-
-file="$(fd . -t f --ignore-file "$HOME/dotfiles/.fdignore" -u --follow | fzf)"
-
-if [ -z "$file" ]; then
-    exit 1
-fi
-nvim "$file"

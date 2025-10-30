@@ -80,14 +80,22 @@ export FZF_DEFAULT_COMMAND='fd . --ignore-file $HOME/dotfiles/.fdignore -u --fol
 export FZF_DEFAULT_OPTS="--layout=reverse --style full --height 100% \
     --preview 'if [ ! -d {} ]; then bat --color=always {} 2> /dev/null; else fd . --color=always --ignore-file $HOME/dotfiles/.fdignore -u --follow --base-directory {}; fi' \
     --preview-window 'top,40%,border-bottom,+{2}+3/3,~3'"
+export FZF_CTRL_R_OPTS="
+  --bind 'ctrl-m:select-all+accept'"
 
 _fzf_compgen_path() {
-    fd . --ignore-file $HOME/dotfiles/.fdignore -u --follow --base-directory "$1"
+    fd . --ignore-file $HOME/dotfiles/.fdignore -u --follow
 }
 
 function open_file_for_editing() {
-    $HOME/dotfiles/bin/openFileForEditing
-    # zle reset-prompt
+    file="$(fd . -t f --ignore-file "$HOME/dotfiles/.fdignore" -u --follow | fzf)"
+
+    if [ -z "$file" ]; then
+        return 1
+    fi
+    BUFFER="vim ${(q)file}"
+    CURSOR=${#BUFFER}
+    zle accept-line
 }
 
 zle -N open_file_for_editing
