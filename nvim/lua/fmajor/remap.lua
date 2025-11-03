@@ -54,4 +54,5 @@ vim.keymap.set("n", "zZ", "zszH")
 -- quicklist navigation
 vim.keymap.set("n", "<A-j>", "<Cmd>try | cnext | catch | cfirst | catch | endtry<CR>")
 vim.keymap.set("n", "<A-k>", "<Cmd>try | cprevious | catch | clast | catch | endtry<CR>")
+vim.keymap.set("n", "<A-x>", vim.cmd.cclose)
 
