@@ -64,7 +64,25 @@ require("lazy").setup({
     {'L3MON4D3/LuaSnip'},
     {'saadparwaiz1/cmp_luasnip'},
     {'rafamadriz/friendly-snippets'},
+
+    -- Color schemes
     {'catppuccin/nvim', name = "catppuccin", priority = 1000 },
+    {
+       "darianmorat/gruvdark.nvim",
+       lazy = false,
+       priority = 1000,
+       opts = {},
+    },
+    {
+       "nickkadutskyi/jb.nvim",
+       lazy = false,
+       priority = 1000,
+       opts = {},
+       config = function()
+           require("jb").setup({transparent = false})
+           vim.cmd("colorscheme jb")
+       end,
+    },
     {
         'mikavilpas/yazi.nvim',
         event = "VeryLazy",
