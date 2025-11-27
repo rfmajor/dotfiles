@@ -36,21 +36,30 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		vim.keymap.set("n", "<leader>r", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
 		vim.keymap.set({ "n", "x" }, "<F3>", "<cmd>lua vim.lsp.buf.format({async = true})<cr>", opts)
 		vim.keymap.set("n", "<F4>", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
+		vim.keymap.set("n", "<A-Enter>", vim.diagnostic.open_float, opts)
 	end,
 })
 
 vim.diagnostic.config({
 	virtual_text = {
 		severity = {
-			min = vim.diagnostic.severity.INFO,
+			min = vim.diagnostic.severity.HINT,
 		},
 		spacing = 2,
 		prefix = "●",
 	},
+    float = {
+        border = 'rounded',
+        source = 'if_many'
+    },
 	signs = true,
 	underline = true,
 	update_in_insert = true,
 	severity_sort = true,
+})
+
+vim.diagnostic.open_float({
+    border = 'rounded'
 })
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()

@@ -41,6 +41,9 @@ vim.opt.ignorecase = true
 
 vim.opt.updatetime = 50
 
-vim.opt.colorcolumn = "80"
+vim.opt.colorcolumn = "120"
+
+vim.opt.cursorline = true
 
 vim.g.mapleader = " "
+

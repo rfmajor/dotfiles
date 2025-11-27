@@ -92,4 +92,5 @@ require("lazy").setup({
     },
     {'itspriddle/vim-shellcheck'},
     {'m4xshen/autoclose.nvim'},
+    {'lewis6991/gitsigns.nvim'},
 })
