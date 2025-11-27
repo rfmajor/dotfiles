@@ -52,7 +52,7 @@ vim.diagnostic.config({
         border = 'rounded',
         source = 'if_many'
     },
-	signs = true,
+	signs = false,
 	underline = true,
 	update_in_insert = true,
 	severity_sort = true,
