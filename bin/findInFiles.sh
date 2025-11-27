@@ -3,7 +3,7 @@
 LAST_QUERY_CACHE="$HOME/.cache/last_fzf_query"
 CACHE_EXPIRY_SECONDS=60
 QUICK_FIX_CACHE="$HOME/.cache/quickfix"
-RG_PREFIX="rg --column --line-number --smart-case --no-heading --hidden --color=always"
+RG_PREFIX="rg --column --line-number --smart-case --no-heading --hidden --color=always --ignore-file=$HOME/dotfiles/.rgignore"
 
 SINGLE="SINGLE"
 QUICKFIX="QUICKFIX"
