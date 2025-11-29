@@ -37,6 +37,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		vim.keymap.set({ "n", "x" }, "<F3>", "<cmd>lua vim.lsp.buf.format({async = true})<cr>", opts)
 		vim.keymap.set("n", "<F4>", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
 		vim.keymap.set("n", "<A-Enter>", vim.diagnostic.open_float, opts)
+        local client = vim.lsp.get_client_by_id(event.data.client_id)
+        client.server_capabilities.semanticTokensProvider = nil
 	end,
 })
 
@@ -57,10 +59,15 @@ vim.diagnostic.config({
 	update_in_insert = true,
 	severity_sort = true,
 })
-
-vim.diagnostic.open_float({
-    border = 'rounded'
+vim.api.nvim_create_autocmd({"CursorHold", "CursorHoldI"}, {
+    callback = vim.diagnostic.open_float
 })
+
+vim.api.nvim_set_hl(0, 'DiagnosticError', { fg = "#fa6675", italic = true })
+vim.api.nvim_set_hl(0, 'DiagnosticWarn', { fg = "#f2c55c", italic = true })
+vim.api.nvim_set_hl(0, 'DiagnosticInfo', { fg = "#857042", italic = true })
+vim.api.nvim_set_hl(0, 'DiagnosticHint', { fg = "#6aab73", italic = true })
+vim.api.nvim_set_hl(0, 'DiagnosticOk', { fg = "#6aab73", italic = true })
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
