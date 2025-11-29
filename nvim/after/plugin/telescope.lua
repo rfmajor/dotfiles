@@ -8,8 +8,8 @@ vim.keymap.set("n", "<leader>pj", function()
 	builtin.buffers({ hidden = true })
 end)
 
-vim.keymap.set("n", "<leader>ls", function ()
-    builtin.live_grep({ additional_args = {'--hidden'} })
+vim.keymap.set("n", "<leader>ls", function()
+	builtin.live_grep({})
 end)
 
 -- put the highlighted text into the search buffer
@@ -21,8 +21,16 @@ require("telescope").setup({
 	defaults = {},
 	pickers = {
 		find_files = {
+            find_command = {
+                "fd", ".", "--ignore-file", "$HOME/dotfiles/.fdignore", "-u", "--follow",
+            },
 			theme = "ivy",
             hidden = true,
+            no_ignore = false,
+            no_ignore_parent = false
+		},
+		live_grep = {
+			additional_args = { "--ignore-file=$HOME/dotfiles/.rgignore" },
 		},
 	},
 	extensions = {},
