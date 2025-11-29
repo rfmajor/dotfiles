@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Script to list recent files and open nvim using fzf
 # set to an alias nlof in .zshrc
@@ -15,10 +15,7 @@ list_oldfiles() {
     done
     # Use fzf to select from valid files
     local files=($(printf "%s\n" "${valid_files[@]}" | \
-        grep -v '\[.*' | \
-        fzf --multi \
-        --height=70% \
-        --layout=default))
+        grep -v '\[.*' | fzf))
 
   # Open selected files in Neovim
   [ ${#files[@]} -gt 0 ] && nvim "${files[@]}"

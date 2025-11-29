@@ -1,18 +1,3 @@
-local function file_exists(file)
-    local f = io.open(file, "rb")
-    if f then f:close() end
-    return f ~= nil
-end
-
-vim.keymap.set('n', '<leader>t', function()
-    local filetype = vim.bo.filetype
-    local templates_dir = vim.fn.expand('$HOME/dotfiles/templates')
-    local template_name = string.format("%s/template.%s", templates_dir, filetype)
-    if file_exists(template_name) then
-        vim.cmd(string.format(":r %s", template_name))
-    end
-end)
-
 vim.keymap.set({ "n", "v" }, "<leader>f", function()
     local mode = vim.fn.mode()
 
@@ -34,3 +19,17 @@ vim.keymap.set({ "n", "v" }, "<leader>f", function()
 
     require("conform").format(opts)
 end, { desc = "Format selection or whole file" })
+
+function Dump(o)
+   if type(o) == 'table' then
+      local s = '{ '
+      for k,v in pairs(o) do
+         if type(k) ~= 'number' then k = '"'..k..'"' end
+         s = s .. '['..k..'] = ' .. Dump(v) .. ','
+      end
+      return s .. '} '
+   else
+      return tostring(o)
+   end
+end
+
