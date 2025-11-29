@@ -1,0 +1,17 @@
+--require("jb").setup({
+--    -- Disable bold or italic for all highlights
+--    disable_hl_args = {
+--        bold = false,
+--        italic = true,
+--    },
+--    -- Control snacks.nvim related styles
+--    snacks = {
+--        explorer = {
+--            -- Enable folke/snacks.nvim styling for explorer
+--            enabled = true,
+--        },
+--    },
+--    -- Enable this to remove background from Normal and NormalNC
+--    transparent = false,
+--})
+--vim.cmd("colorscheme jb")
