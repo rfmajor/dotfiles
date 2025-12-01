@@ -28,6 +28,10 @@ nnoremap <C-l> 40l
 nnoremap <C-h> 40h
 map <leader>1 :action SelectInProjectView<CR>
 map <leader>pf :action SearchEverywhere<CR>
+map <leader>b :action Annotate<CR>
+map <leader>ls :action FindInPath<CR>
+map <leader>f :action ReformatCode<CR>
+map <leader>r :action RenameElement<CR>
 
 "" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
 "" Map \r to the Reformat Code action
