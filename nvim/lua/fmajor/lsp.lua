@@ -63,7 +63,6 @@ vim.diagnostic.config({
     severity_sort = true,
 })
 
--- red
 local red = "#fa6675"
 local yellow = "#f2c55c"
 local blue = "#5ccff2"
