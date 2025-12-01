@@ -62,20 +62,24 @@ vim.diagnostic.config({
     update_in_insert = true,
     severity_sort = true,
 })
-vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
-    callback = vim.diagnostic.open_float
-})
 
-vim.api.nvim_set_hl(0, 'DiagnosticError', { fg = "#fa6675", italic = true })
-vim.api.nvim_set_hl(0, 'DiagnosticWarn', { fg = "#f2c55c", italic = true })
-vim.api.nvim_set_hl(0, 'DiagnosticInfo', { fg = "#5ccff2", italic = true })
-vim.api.nvim_set_hl(0, 'DiagnosticHint', { fg = "#d95cf2", italic = true })
-vim.api.nvim_set_hl(0, 'DiagnosticOk', { fg = "#42fa0a", italic = true })
-vim.api.nvim_set_hl(0, 'DiagnosticFloatingError', { fg = "#fa6675", italic = true })
-vim.api.nvim_set_hl(0, 'DiagnosticFloatingWarn', { fg = "#f2c55c", italic = true })
-vim.api.nvim_set_hl(0, 'DiagnosticFloatingInfo', { fg = "#5ccff2", italic = true })
-vim.api.nvim_set_hl(0, 'DiagnosticFloatingHint', { fg = "#d95cf2", italic = true })
-vim.api.nvim_set_hl(0, 'DiagnosticFloatingOk', { fg = "#42fa0a", italic = true })
+-- red
+local red = "#fa6675"
+local yellow = "#f2c55c"
+local blue = "#5ccff2"
+local purple = "#d95cf2"
+local green = "#42fa0a"
+
+vim.api.nvim_set_hl(0, 'DiagnosticError', { fg = red, italic = true })
+vim.api.nvim_set_hl(0, 'DiagnosticWarn', { fg = yellow, italic = true })
+vim.api.nvim_set_hl(0, 'DiagnosticInfo', { fg = blue, italic = true })
+vim.api.nvim_set_hl(0, 'DiagnosticHint', { fg = purple, italic = true })
+vim.api.nvim_set_hl(0, 'DiagnosticOk', { fg = green, italic = true })
+vim.api.nvim_set_hl(0, 'DiagnosticFloatingError', { fg = red, italic = true })
+vim.api.nvim_set_hl(0, 'DiagnosticFloatingWarn', { fg = yellow, italic = true })
+vim.api.nvim_set_hl(0, 'DiagnosticFloatingInfo', { fg = blue, italic = true })
+vim.api.nvim_set_hl(0, 'DiagnosticFloatingHint', { fg = purple, italic = true })
+vim.api.nvim_set_hl(0, 'DiagnosticFloatingOk', { fg = green, italic = true })
 
 --vim.lsp.config("pyright", {
 --})
