@@ -1,4 +1,6 @@
-require("gitsigns").setup({
+local gitsigns = require("gitsigns")
+
+gitsigns.setup({
 	signs = {
 		add = { text = "┃" },
 		change = { text = "┃" },
@@ -20,7 +22,7 @@ require("gitsigns").setup({
 	signcolumn = true, -- Toggle with `:Gitsigns toggle_signs`
 	numhl = false, -- Toggle with `:Gitsigns toggle_numhl`
 	linehl = false, -- Toggle with `:Gitsigns toggle_linehl`
-	word_diff = true, -- Toggle with `:Gitsigns toggle_word_diff`
+	word_diff = false, -- Toggle with `:Gitsigns toggle_word_diff`
 	watch_gitdir = {
 		follow_files = true,
 	},
@@ -47,6 +49,18 @@ require("gitsigns").setup({
 		row = 0,
 		col = 1,
 	},
+    on_attach = function (bufnr)
+        local opts = {}
+        opts.buffer = bufnr
+
+        vim.keymap.set("n", "<leader>wd", function ()
+            local enabled = gitsigns.toggle_word_diff()
+            local onOff = enabled and 'on' or 'off'
+            print("Word diff turned " .. onOff)
+        end, opts)
+
+        vim.keymap.set("n", "<leader>b", gitsigns.blame, opts)
+    end
 })
 
 vim.api.nvim_set_hl(0, "GitSignsAdd", { fg = "#40ff40" })
