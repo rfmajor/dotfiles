@@ -34,8 +34,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
         vim.keymap.set("n", "gs", vim.lsp.buf.signature_help, opts)
         vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, opts)
         vim.keymap.set({ "n", "x" }, "<F3>", vim.lsp.buf.format, opts)
-        vim.keymap.set("n", "ga", vim.lsp.buf.code_action, opts)
-        vim.keymap.set("n", "<A-Enter>", vim.diagnostic.open_float, opts)
+        vim.keymap.set("n", "<A-Enter>", function ()
+            vim.lsp.buf.code_action({
+                apply = true,
+            })
+        end, opts)
+        vim.keymap.set("n", "<leader>of", vim.diagnostic.open_float, opts)
         local client = vim.lsp.get_client_by_id(event.data.client_id)
         if client ~= nil then client.server_capabilities.semanticTokensProvider = nil end
     end,
@@ -67,6 +71,11 @@ vim.api.nvim_set_hl(0, 'DiagnosticWarn', { fg = "#f2c55c", italic = true })
 vim.api.nvim_set_hl(0, 'DiagnosticInfo', { fg = "#5ccff2", italic = true })
 vim.api.nvim_set_hl(0, 'DiagnosticHint', { fg = "#d95cf2", italic = true })
 vim.api.nvim_set_hl(0, 'DiagnosticOk', { fg = "#42fa0a", italic = true })
+vim.api.nvim_set_hl(0, 'DiagnosticFloatingError', { fg = "#fa6675", italic = true })
+vim.api.nvim_set_hl(0, 'DiagnosticFloatingWarn', { fg = "#f2c55c", italic = true })
+vim.api.nvim_set_hl(0, 'DiagnosticFloatingInfo', { fg = "#5ccff2", italic = true })
+vim.api.nvim_set_hl(0, 'DiagnosticFloatingHint', { fg = "#d95cf2", italic = true })
+vim.api.nvim_set_hl(0, 'DiagnosticFloatingOk', { fg = "#42fa0a", italic = true })
 
 --vim.lsp.config("pyright", {
 --})
