@@ -36,9 +36,6 @@ require("lazy").setup({
         "stevearc/conform.nvim",
         event = { "BufWritePre" },
         cmd = { "ConformInfo" },
-        config = function()
-            require("fmajor.conform")
-        end,
     },
     {'nvim-treesitter/nvim-treesitter', build = ':TSUpdate'},
     {'nvim-lua/plenary.nvim'}, -- don't forget to add this one if you don't have it yet!
