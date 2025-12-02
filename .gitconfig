@@ -12,7 +12,7 @@
 	}; f"
     # Use fzf to choose from branches
     sw = "!f() { \
-      git branch ${@} | sed -re 's/\\*//g' -e 's/^ *//g' -e 's/^origin\\///g' | fzf --height=70% --layout=reverse | xargs -I {} git switch {}; \
+      git branch ${@} | sed -re 's/\\*//g' -e 's/^ *//g' -e 's/^origin\\///g' | fzf --preview 'git lp {}' | xargs -I {} git switch {}; \
     }; f"
    amd = commit --amend --no-edit
 [core]
