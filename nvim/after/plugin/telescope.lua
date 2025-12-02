@@ -5,7 +5,11 @@ vim.keymap.set("n", "<leader>pf", function()
 end)
 
 vim.keymap.set("n", "<leader>pj", function()
-	builtin.buffers({ hidden = true })
+	builtin.buffers({ show_all_buffers = true })
+end)
+
+vim.keymap.set("n", "<leader>ph", function()
+	builtin.help_tags()
 end)
 
 vim.keymap.set("n", "<leader>ls", function()
@@ -25,6 +29,8 @@ end)
 vim.keymap.set("x", "<leader>ls", '"zy:Telescope live_grep default_text=<C-r>z<cr>')
 vim.keymap.set("x", "<leader>pf", '"zy:Telescope find_files default_text=<C-r>z<cr>')
 vim.keymap.set("x", "<leader>ps", '"zy:Telescope grep_string search=<C-r>z<cr>')
+vim.keymap.set("x", "<leader>pj", '"zy:Telescope buffers<cr><C-r>z')
+vim.keymap.set("x", "<leader>ph", '"zy:Telescope help_tags<cr><C-r>z')
 
 vim.keymap.set("n", "<C-e>", ":Telescope frecency workspace=CWD theme=ivy<CR>")
 
