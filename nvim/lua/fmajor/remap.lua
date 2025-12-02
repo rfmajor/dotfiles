@@ -2,7 +2,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
--- moving the visually selected area 
+-- moving the visually selected area
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
@@ -56,3 +56,11 @@ vim.keymap.set("n", "<A-j>", "<Cmd>try | cnext | catch | cfirst | catch | endtry
 vim.keymap.set("n", "<A-k>", "<Cmd>try | cprevious | catch | clast | catch | endtry<CR>")
 vim.keymap.set("n", "<A-x>", vim.cmd.cclose)
 
+vim.keymap.set("n", "<leader>iu", function ()
+    local pos = vim.api.nvim_win_get_cursor(0)
+    local line = vim.api.nvim_get_current_line()
+    local uuid = UUIDv4()
+    local nline = line:sub(0, pos[2] + 1) .. uuid .. line:sub(pos[2] + 2)
+    vim.api.nvim_set_current_line(nline)
+    vim.api.nvim_win_set_cursor(0, {pos[1], pos[2] + 1 + string.len(uuid)})
+end)
