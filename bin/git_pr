@@ -1,0 +1,18 @@
+#!/bin/sh
+
+remote="$(git config get remote.origin.url)"
+branch="$(git branch --show-current)"
+if echo "$remote" | grep -E '^git@' > /dev/null 2>&1; then
+    host="$(echo "$remote" | cut -c5- | cut -d: -f1)"
+    hostname="$(ssh -G "$host" | grep -E '^hostname ' | cut -d' ' -f2)"
+    repository_path="$(echo "$remote" | cut -d: -f2 | cut -d. -f1)"
+    http_url="https://$hostname/$repository_path/pull/new/$branch"
+elif echo "$remote" | grep -E '^http' > /dev/null 2>&1; then
+    http_url="$remote/pull/new/$branch"
+else
+    printf "Unrecognized remote type: %s\n" "$remote"
+    exit 1
+fi
+
+printf "Creating PR using url: %s\n" "$http_url"
+open "$http_url"
