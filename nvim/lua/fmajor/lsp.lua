@@ -32,7 +32,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, opts)
 		vim.keymap.set("n", "<A-Enter>", function()
 			vim.lsp.buf.code_action({
-				apply = true,
+				apply = false,
 			})
 		end, opts)
 		vim.keymap.set("n", "<leader>of", vim.diagnostic.open_float, opts)
