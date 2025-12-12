@@ -140,16 +140,4 @@ require("lazy").setup({
 		end,
 		ft = { "markdown" },
 	},
-	{
-		"olimorris/codecompanion.nvim",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"nvim-treesitter/nvim-treesitter",
-		},
-		opts = {
-			opts = {
-				log_level = "DEBUG",
-			},
-		},
-	},
 })
