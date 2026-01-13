@@ -102,3 +102,4 @@ zle -N open_file_for_editing
 
 bindkey '^V' open_file_for_editing
 
+source "$HOME/dotfiles/.zsh-man"

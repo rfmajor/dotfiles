@@ -3,7 +3,7 @@
 	lp = log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --color=always --date=human
     # tiny
     l = "lp -10"
-	d = diff --stat
+    d = diff --stat=10000
     # Rollback specific files until commit
     # 1 - commit to rollback to
     # 2.. - files

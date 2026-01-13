@@ -1,17 +1,19 @@
-# === ALIASES === 
+# === ALIASES ===
 alias less="less -RM"
 alias vim=nvim
-alias la='ls -Ahl --color=always'
-alias ls='ls -Ahl --color=always'
+alias la='ls -A --color=always'
+alias ls='ls -A --color=always'
 alias l='ls -Ahl --color=always'
+alias ll='ls -Ahl --color=always'
 alias gpclone="$HOME/dotfiles/bin/clonePrivateRepo"
 alias n="$HOME/dotfiles/bin/notes.sh -l"
 alias nn="$HOME/dotfiles/bin/notes.sh -c"
 alias nd="$HOME/dotfiles/bin/notes.sh -d"
 alias ns="$HOME/dotfiles/bin/notes.sh -s"
 alias ngc="$HOME/dotfiles/bin/notes.sh -gc"
+alias hman="bat -l man --style=plain --paging=always"
 
-# === FUNCTIONS === 
+# === FUNCTIONS ===
 
 # rg with a pager
 rgl() {
