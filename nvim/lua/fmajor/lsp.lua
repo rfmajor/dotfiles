@@ -7,6 +7,7 @@ vim.opt.signcolumn = "yes"
 -- Add cmp_nvim_lsp capabilities settings to lspconfig
 -- This should be executed before you configure any language server
 local lspconfig_defaults = require("lspconfig").util.default_config
+lspconfig_defaults.capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = false
 lspconfig_defaults.capabilities =
 	vim.tbl_deep_extend("force", lspconfig_defaults.capabilities, require("cmp_nvim_lsp").default_capabilities())
 
@@ -20,14 +21,14 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		local opts = { buffer = event.buf }
 
 		vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-		-- vim.keymap.set("n", "gd", telescope_builtin.lsp_definitions, opts)
-		vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+		vim.keymap.set("n", "gd", telescope_builtin.lsp_definitions, opts)
+		-- vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
 		vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-		-- vim.keymap.set("n", "gi", telescope_builtin.lsp_implementations, opts)
-		vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
+		vim.keymap.set("n", "gi", telescope_builtin.lsp_implementations, opts)
+		-- vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
 		vim.keymap.set("n", "go", vim.lsp.buf.type_definition, opts)
-		vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
-		-- vim.keymap.set("n", "gr", telescope_builtin.lsp_references, opts)
+		-- vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
+		vim.keymap.set("n", "gr", telescope_builtin.lsp_references, opts)
 		vim.keymap.set("n", "gs", vim.lsp.buf.signature_help, opts)
 		vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, opts)
 		vim.keymap.set("n", "<A-Enter>", function()
