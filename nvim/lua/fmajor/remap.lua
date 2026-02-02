@@ -56,7 +56,7 @@ vim.keymap.set("n", "<A-j>", "<Cmd>try | cnext | catch | cfirst | catch | endtry
 vim.keymap.set("n", "<A-k>", "<Cmd>try | cprevious | catch | clast | catch | endtry<CR>")
 vim.keymap.set("n", "<A-x>", vim.cmd.cclose)
 
-vim.keymap.set("n", "<leader>iu", function ()
+vim.keymap.set("n", "<leader>ui", function ()
     local pos = vim.api.nvim_win_get_cursor(0)
     local line = vim.api.nvim_get_current_line()
     local uuid = UUIDv4()
