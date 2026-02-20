@@ -38,7 +38,9 @@ map <leader>gf :action ExternalSystem.ProjectRefreshAction<CR>
 map <leader>gv :action IdeaVim.ReloadVimRc.reload<CR>
 map <A-j> :action NextOccurence<CR>
 map <A-k> :action PreviousOccurence<CR>
-map <leader>ui :action uuidgenerator.random<CR>
+xmap <leader>ui :action uuidgenerator.random<CR>h
+nmap <leader>ui l:action uuidgenerator.random<CR>h
+map <leader>s :action SurroundWith<CR>
 
 
 "" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
