@@ -12,7 +12,7 @@
 	}; f"
     # Use fzf to choose from branches
     sw = "!f() { \
-      git branch -a | sed -re 's/[^a-zA-Z0-9\\/_-]//g' | sort | fzf --preview 'git lp {} 2>/dev/null' | xargs -I {} git switch {}; \
+      git branch -a | sed -re 's/[^a-zA-Z0-9\\/_-]//g' | sort | fzf --preview 'git lp {} 2>/dev/null' | rev | cut -d'/' -f1 | rev | xargs -I {} git switch {}; \
     }; f"
    amd = commit --amend --no-edit
 [core]
