@@ -98,8 +98,22 @@ function open_file_for_editing() {
     zle accept-line
 }
 
+function open_last_files() {
+    file=$("$HOME/dotfiles/bin/fzf_listOldFiles.sh")
+
+    if [ -z "$file" ]; then
+        return 1
+    fi
+    BUFFER="vim ${(q)file}"
+    CURSOR=${#BUFFER}
+    zle accept-line
+}
+
 zle -N open_file_for_editing
+zle -N open_last_files
 
 bindkey '^V' open_file_for_editing
+
+bindkey '^K' open_last_files
 
 source "$HOME/dotfiles/.zsh-man"
