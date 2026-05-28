@@ -12,9 +12,8 @@ function Dump(o)
 end
 
 function UUIDv4()
-    math.randomseed(tonumber(tostring(os.time()):reverse():sub(1, 9)))
-    local random = math.random
     local template ='xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'
+    local random = math.random
     return string.gsub(template, '[xy]', function (c)
         local v = (c == 'x') and random(0, 0xf) or random(8, 0xb)
         return string.format('%x', v)
