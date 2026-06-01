@@ -67,3 +67,4 @@ vim.keymap.set("n", "<A-x>", vim.cmd.cclose)
 
 vim.keymap.set("n", "<leader>ui", InsertUUID)
 vim.keymap.set("v", "<leader>ui", "dh:lua InsertUUID()<CR>")
+vim.keymap.set("n", "<leader>x", ":!chmod +x %<CR>")

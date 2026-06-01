@@ -19,7 +19,7 @@ end)
 vim.keymap.set("n", "<leader>ps", function()
     local searchQuery = vim.fn.input("> ")
     if searchQuery ~= "" then
-        builtin.grep_string({ hidden = true, search = searchQuery })
+        builtin.grep_string({ hidden = true, search = searchQuery, useRegex = true })
     else
         print("No input")
     end
