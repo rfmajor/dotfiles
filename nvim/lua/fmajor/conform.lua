@@ -8,11 +8,16 @@ conform.setup({
 		go = { "gofmt" },
 		json = { "prettier" },
 		yaml = { "prettier" },
+		html = { "prettier" },
 		markdown = { "prettier" },
 		bash = { "shellcheck" },
 		sh = { "shfmt" },
+        c = { "clang-format" }
 	},
 })
+conform.formatters.prettier = {
+    append_args = { "--config", os.getenv("HOME") .. "/dotfiles/.prettierrc.json" }
+}
 
 vim.keymap.set({ "n", "v" }, "<leader>f", function()
     local mode = vim.fn.mode()
