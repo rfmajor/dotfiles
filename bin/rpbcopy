@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+PB_DIR="$HOME/.cache/rpb"
+PB_FILE="$PB_DIR/rpb_clipboard"
+
+if [[ ! -d "$PB_DIR" ]]; then
+    mkdir -p "$PB_DIR"
+fi
+
+if [[ -p /dev/stdin ]]; then
+    body=$(cat -)
+else
+    printf "No input" >&2 && exit 1
+fi
+
+echo "$body" >> "$PB_FILE"
+

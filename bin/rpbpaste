@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+PB_DIR="$HOME/.cache/rpb"
+PB_FILE="$PB_DIR/rpb_clipboard"
+
+if [[ ! -d "$PB_DIR" ]]; then
+    exit 1
+fi
+
+if [[ ! -f "$PB_FILE" ]]; then
+    exit 1
+fi
+
+line="$(tail -n 1 "$PB_FILE")"
+count="$(wc -l "$PB_FILE" | xargs | cut -d' ' -f1)"
+
+if [[ "$count" -lt 1 ]]; then
+    exit 1
+fi
+
+count=$((count - 1))
+
+if [[ "$count" -lt 1 ]]; then
+    printf "" > "$PB_FILE"
+else
+    new_content="$(head -n "$count" "$PB_FILE")"
+    echo "$new_content" > "$PB_FILE"
+fi
+
+printf "%s" "$line"
+
