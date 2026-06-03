@@ -27,5 +27,6 @@ else
     echo "$new_content" > "$PB_FILE"
 fi
 
-printf "%s" "$line"
+printf "%s" "$line" | pbcopy
+pbpaste
 
