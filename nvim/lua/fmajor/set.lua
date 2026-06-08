@@ -47,4 +47,3 @@ vim.opt.textwidth = 120
 vim.opt.cursorline = true
 
 vim.g.mapleader = " "
-

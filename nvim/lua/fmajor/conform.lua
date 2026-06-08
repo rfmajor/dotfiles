@@ -12,18 +12,21 @@ conform.setup({
 		markdown = { "prettier" },
 		bash = { "shellcheck" },
 		sh = { "shfmt" },
-        c = { "clang-format" }
+		c = { "clang-format" },
+	},
+	format_on_save = {
+		timeout_ms = 500,
+		lsp_format = "fallback",
 	},
 })
 conform.formatters.prettier = {
-    append_args = { "--config", os.getenv("HOME") .. "/dotfiles/.prettierrc.json" }
+	append_args = { "--config", os.getenv("HOME") .. "/dotfiles/.prettierrc.json" },
 }
 
 vim.keymap.set({ "n" }, "<leader>f", function()
-    local opts = {
-        async = true,
-        lsp_fallback = true,
-    }
-    conform.format(opts)
+	local opts = {
+		async = true,
+		lsp_fallback = true,
+	}
+	conform.format(opts)
 end, { desc = "Format file" })
-

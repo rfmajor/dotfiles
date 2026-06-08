@@ -49,18 +49,18 @@ gitsigns.setup({
 		row = 0,
 		col = 1,
 	},
-    on_attach = function (bufnr)
-        local opts = {}
-        opts.buffer = bufnr
+	on_attach = function(bufnr)
+		local opts = {}
+		opts.buffer = bufnr
 
-        vim.keymap.set("n", "<leader>wd", function ()
-            local enabled = gitsigns.toggle_word_diff()
-            local onOff = enabled and 'on' or 'off'
-            print("Word diff turned " .. onOff)
-        end, opts)
+		vim.keymap.set("n", "<leader>wd", function()
+			local enabled = gitsigns.toggle_word_diff()
+			local onOff = enabled and "on" or "off"
+			print("Word diff turned " .. onOff)
+		end, opts)
 
-        vim.keymap.set("n", "<leader>b", gitsigns.blame, opts)
-    end
+		vim.keymap.set("n", "<leader>b", gitsigns.blame, opts)
+	end,
 })
 
 vim.api.nvim_set_hl(0, "GitSignsAdd", { fg = "#40ff40" })

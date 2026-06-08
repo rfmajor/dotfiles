@@ -1,10 +1,10 @@
 function InsertUUID()
-    local pos = vim.api.nvim_win_get_cursor(0)
-    local line = vim.api.nvim_get_current_line()
-    local uuid = UUIDv4()
-    local nline = line:sub(0, pos[2] + 1) .. uuid .. line:sub(pos[2] + 2)
-    vim.api.nvim_set_current_line(nline)
-    vim.api.nvim_win_set_cursor(0, {pos[1], pos[2] + string.len(uuid)})
+	local pos = vim.api.nvim_win_get_cursor(0)
+	local line = vim.api.nvim_get_current_line()
+	local uuid = UUIDv4()
+	local nline = line:sub(0, pos[2] + 1) .. uuid .. line:sub(pos[2] + 2)
+	vim.api.nvim_set_current_line(nline)
+	vim.api.nvim_win_set_cursor(0, { pos[1], pos[2] + string.len(uuid) })
 end
 
 vim.g.mapleader = " "
@@ -24,26 +24,26 @@ vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
 -- paste without overwriting the register
-vim.keymap.set("x", "<leader>p", "\"_dP")
+vim.keymap.set("x", "<leader>p", '"_dP')
 -- yank to the system clipboard
-vim.keymap.set("n", "<leader>y", "\"+y")
-vim.keymap.set("v", "<leader>y", "\"+y")
-vim.keymap.set("n", "<leader>Y", "\"+Y")
+vim.keymap.set("n", "<leader>y", '"+y')
+vim.keymap.set("v", "<leader>y", '"+y')
+vim.keymap.set("n", "<leader>Y", '"+Y')
 
 -- delete to the void register
-vim.keymap.set("n", "<leader>d", "\"_d")
-vim.keymap.set("v", "<leader>d", "\"_d")
-vim.keymap.set("n", "<leader>x", "\"_x")
-vim.keymap.set("v", "<leader>x", "\"_x")
-vim.keymap.set("n", "<leader>D", "\"_D")
-vim.keymap.set("v", "<leader>D", "\"_D")
+vim.keymap.set("n", "<leader>d", '"_d')
+vim.keymap.set("v", "<leader>d", '"_d')
+vim.keymap.set("n", "<leader>x", '"_x')
+vim.keymap.set("v", "<leader>x", '"_x')
+vim.keymap.set("n", "<leader>D", '"_D')
+vim.keymap.set("v", "<leader>D", '"_D')
 
 -- enclose the selected area and keep inner text selected (like in Intellij)
 vim.keymap.set("x", "<leader>(", "<Esc>`<i(<Esc>`>la)<Esc>hv`<l")
 vim.keymap.set("x", "<leader><", "<Esc>`<i<<Esc>`>la><Esc>hv`<l")
 vim.keymap.set("x", "<leader>{", "<Esc>`<i{<Esc>`>la}<Esc>hv`<l")
 vim.keymap.set("x", "<leader>[", "<Esc>`<i[<Esc>`>la]<Esc>hv`<l")
-vim.keymap.set("x", "<leader>\"", "<Esc>`<i\"<Esc>`>la\"<Esc>hv`<l")
+vim.keymap.set("x", '<leader>"', '<Esc>`<i"<Esc>`>la"<Esc>hv`<l')
 vim.keymap.set("x", "<leader>'", "<Esc>`<i'<Esc>`>la'<Esc>hv`<l")
 vim.keymap.set("x", "<leader>`", "<Esc>`<i`<Esc>`>la`<Esc>hv`<l")
 
