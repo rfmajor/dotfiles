@@ -24,11 +24,6 @@ vim.opt.rtp:prepend(lazypath)
 -- Setup lazy.nvim
 require("lazy").setup({
 	{
-		"rose-pine/neovim",
-		as = "rose-pine",
-	},
-	{ "devsjc/vim-jb" },
-	{
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.8",
 		dependencies = { "nvim-lua/plenary.nvim" },
@@ -41,14 +36,6 @@ require("lazy").setup({
 	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
 	{ "nvim-lua/plenary.nvim" }, -- don't forget to add this one if you don't have it yet!
 	{ "mbbill/undotree" },
-	{
-		"nvim-telescope/telescope-frecency.nvim",
-		-- install the latest stable version
-		version = "*",
-		config = function()
-			require("telescope").load_extension("frecency")
-		end,
-	},
 	{ "neovim/nvim-lspconfig" },
 	{
 		"hrsh7th/nvim-cmp",
@@ -69,40 +56,7 @@ require("lazy").setup({
 	{ "rafamadriz/friendly-snippets" },
 
 	-- Color schemes
-	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
-	{
-		"darianmorat/gruvdark.nvim",
-		lazy = false,
-		priority = 1000,
-		opts = {},
-	},
-	{
-		"nickkadutskyi/jb.nvim",
-		lazy = false,
-		priority = 1000,
-		opts = {},
-		config = function()
-			require("jb").setup({
-				-- Disable bold or italic for all highlights
-				disable_hl_args = {
-					bold = false,
-					italic = false,
-				},
-				-- Control snacks.nvim related styles
-				snacks = {
-					explorer = {
-						-- Enable folke/snacks.nvim styling for explorer
-						enabled = true,
-					},
-				},
-				-- Enable this to remove background from Normal and NormalNC
-				transparent = false,
-			})
-			vim.cmd("colorscheme jb")
-		end,
-	},
-	{ "blueyed/vim-diminactive" },
-
+	-- { "blueyed/vim-diminactive" },
 	{
 		"mikavilpas/yazi.nvim",
 		event = "VeryLazy",
@@ -140,4 +94,5 @@ require("lazy").setup({
 		end,
 		ft = { "markdown" },
 	},
+	{ "rebelot/kanagawa.nvim" },
 })
