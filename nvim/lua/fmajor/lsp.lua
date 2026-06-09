@@ -21,14 +21,14 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		local opts = { buffer = event.buf }
 
 		vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-		vim.keymap.set("n", "gd", telescope_builtin.lsp_definitions, opts)
+		-- vim.keymap.set("n", "gd", telescope_builtin.lsp_definitions, opts)
 		-- vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
 		vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
 		vim.keymap.set("n", "gi", telescope_builtin.lsp_implementations, opts)
 		-- vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
 		vim.keymap.set("n", "go", vim.lsp.buf.type_definition, opts)
-		vim.keymap.set("n", "grr", vim.lsp.buf.references, opts)
-		-- vim.keymap.set("n", "grr", telescope_builtin.lsp_references, opts)
+		vim.keymap.set("n", "gd", vim.lsp.buf.references, opts)
+		-- vim.keymap.set("n", "gd", telescope_builtin.lsp_references, opts)
 		vim.keymap.set("n", "gs", vim.lsp.buf.signature_help, opts)
 		vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, opts)
 		vim.keymap.set("n", "<A-Enter>", function()
@@ -79,9 +79,6 @@ vim.api.nvim_set_hl(0, "DiagnosticFloatingInfo", { fg = blue, italic = true })
 vim.api.nvim_set_hl(0, "DiagnosticFloatingHint", { fg = purple, italic = true })
 vim.api.nvim_set_hl(0, "DiagnosticFloatingOk", { fg = green, italic = true })
 
---vim.lsp.config("pyright", {
---})
-
 vim.lsp.config("lua_ls", {
 	settings = {
 		Lua = {
@@ -121,6 +118,8 @@ vim.lsp.config("lua_ls", {
 --})
 --vim.lsp.config("clangd", {
 --})
+-- vim.lsp.config("pyright", {
+-- })
 vim.lsp.enable("pyright")
 vim.lsp.enable("lua_ls")
 vim.lsp.enable("bashls")
