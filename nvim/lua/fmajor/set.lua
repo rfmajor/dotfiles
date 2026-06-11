@@ -35,6 +35,9 @@ vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 
+-- split right when vertical
+vim.opt.splitright = true
+
 -- case insensitive search
 vim.opt.smartcase = true
 vim.opt.ignorecase = true
