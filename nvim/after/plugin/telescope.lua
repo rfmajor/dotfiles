@@ -17,12 +17,12 @@ vim.keymap.set("n", "<leader>ls", function()
 end)
 
 vim.keymap.set("n", "<leader>ps", function()
-    local searchQuery = vim.fn.input("> ")
-    if searchQuery ~= "" then
-        builtin.grep_string({ hidden = true, search = searchQuery, useRegex = true })
-    else
-        print("No input")
-    end
+	local searchQuery = vim.fn.input("> ")
+	if searchQuery ~= "" then
+		builtin.grep_string({ hidden = true, search = searchQuery, useRegex = true })
+	else
+		print("No input")
+	end
 end)
 
 -- put the highlighted text into the search buffer
@@ -40,13 +40,18 @@ require("telescope").setup({
 	defaults = {},
 	pickers = {
 		find_files = {
-            find_command = {
-                "fd", ".", "--ignore-file", rgIgnorePath, "-u", "--follow",
-            },
+			find_command = {
+				"fd",
+				".",
+				"--ignore-file",
+				fdIgnorePath,
+				"-u",
+				"--follow",
+			},
 			theme = "ivy",
-            hidden = true,
-            no_ignore = false,
-            no_ignore_parent = false
+			hidden = true,
+			no_ignore = false,
+			no_ignore_parent = false,
 		},
 		live_grep = {
 			additional_args = { "--ignore-file=" .. fdIgnorePath },
