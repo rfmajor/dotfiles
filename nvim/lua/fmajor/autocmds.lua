@@ -9,6 +9,6 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 
 -- Set indentation to 2 spaces for specific filetypes
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
-	pattern = { "*.css", "*.html", "*.js", "*.mjs", "*.cjs", "*.ts", "*.scss", "*.xml", "*.xhtml" },
+	pattern = { "*.css", "*.html", "*.js", "*.mjs", "*.cjs", "*.ts", "*.scss", "*.xml", "*.xhtml", "*.bru" },
 	command = "setlocal shiftwidth=2 tabstop=2",
 })

@@ -11,6 +11,7 @@ require("nvim-treesitter").install({
 	"gitcommit",
 	"gitignore",
 	"html",
+	"java",
 	"javascript",
 	"json",
 	"latex",

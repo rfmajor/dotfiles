@@ -9,6 +9,7 @@ conform.setup({
 		json = { "prettier" },
 		yaml = { "prettier" },
 		html = { "prettier" },
+		css = { "prettier" },
 		markdown = { "prettier" },
 		bash = { "shellcheck" },
 		sh = { "shfmt" },
