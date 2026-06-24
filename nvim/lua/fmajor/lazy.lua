@@ -108,4 +108,5 @@ require("lazy").setup({
 		ft = { "markdown" },
 	},
 	{ "rebelot/kanagawa.nvim" },
+	{ "catppuccin/nvim" },
 })
