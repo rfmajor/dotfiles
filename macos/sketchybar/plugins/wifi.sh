@@ -2,9 +2,9 @@
 
 . "$HOME/dotfiles/common/themes/current"
 
-NETWORK=$(system_profiler SPAirPortDataType | awk '/Current Network/ {getline;$1=$1; gsub(":",""); print;exit}')
-# Not working recently
-# NETWORK=$(ipconfig getsummary "$(networksetup -listallhardwareports | awk '/Wi-Fi|AirPort/{getline; print $NF}')" | grep '  SSID : ' | awk -F ': ' '{print $2}')
+en="$(networksetup -listallhardwareports | awk '/Wi-Fi|AirPort/{getline; print $NF}')"
+# since macOS 15.6
+NETWORK=$(ipconfig getsummary "$en" | grep -Fxq "  Active : FALSE" || networksetup -listpreferredwirelessnetworks "$en" | sed -n '2s/^\t//p')
 if [ "$NETWORK" = "" ]; then
     ICON="󰖪 "
     NETWORK="No connection"
