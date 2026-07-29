@@ -12,3 +12,27 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
 	pattern = { "*.css", "*.html", "*.js", "*.mjs", "*.cjs", "*.ts", "*.scss", "*.xml", "*.xhtml", "*.bru" },
 	command = "setlocal shiftwidth=2 tabstop=2",
 })
+
+local lang_to_cmd = {}
+lang_to_cmd["*.c"] = ":!gcc % && ./a.out<CR>"
+lang_to_cmd["*.py"] = ":!python %<CR>"
+lang_to_cmd["*.lua"] = ":!lua %<CR>"
+lang_to_cmd["*.bru"] =
+	':!abs=$(readlink -f %); cd $(git rev-parse --show-toplevel)/tests/functional; bru run "$abs" --env localhost<CR>'
+lang_to_cmd["*.sh"] = ":!sh -c ./%<CR>"
+
+for key, value in pairs(lang_to_cmd) do
+	vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+		desc = "Compile/execute a standalone file",
+		pattern = { key },
+		callback = function()
+			vim.keymap.set("n", "<leader>e", value)
+		end,
+	})
+end
+
+vim.filetype.add({
+	pattern = {
+		[".*/*.bru"] = "json",
+	},
+})
