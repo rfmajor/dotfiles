@@ -33,8 +33,8 @@ vim.keymap.set("n", "<leader>Y", '"+Y')
 -- delete to the void register
 vim.keymap.set("n", "<leader>d", '"_d')
 vim.keymap.set("v", "<leader>d", '"_d')
-vim.keymap.set("n", "<leader>x", '"_x')
-vim.keymap.set("v", "<leader>x", '"_x')
+-- vim.keymap.set("n", "<leader>x", '"_x')
+-- vim.keymap.set("v", "<leader>x", '"_x')
 vim.keymap.set("n", "<leader>D", '"_D')
 vim.keymap.set("v", "<leader>D", '"_D')
 
@@ -67,4 +67,4 @@ vim.keymap.set("n", "<A-x>", vim.cmd.cclose)
 
 vim.keymap.set("n", "<leader>ui", InsertUUID)
 vim.keymap.set("v", "<leader>ui", ":lua InsertUUID()<CR>")
-vim.keymap.set("n", "<leader>x", ":!chmod +x %<CR>")
+vim.keymap.set("n", "<leader>xx", ":!chmod +x %<CR>")
