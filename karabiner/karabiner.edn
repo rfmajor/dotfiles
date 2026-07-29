@@ -57,10 +57,10 @@
             [:!CTu [ "pbpaste | uuidgen | tr 'A-Z' 'a-z' | tr -d '\n' | pbcopy" {:key :vk_none :hold_down_ms 100} :!Cv ] ]
           ]}
 
-        {:des "Run removable copy script with Cmd+Shift+C"
-         :rules  [
-                  [:!CSc [ :!Cc "pbpaste | /Users/pl8000393/dotfiles/bin/rpbcopy" ] ]
-          ]}
+        ; {:des "Run removable copy script with Cmd+Shift+Alt+C"
+        ;  :rules  [
+        ;           [:!CSAc [ :!Cc "pbpaste | /Users/pl8000393/dotfiles/bin/rpbcopy" ] ]
+        ;   ]}
 
         {:des "Run removable paste script with Cmd+Shift+V"
          :rules  [
