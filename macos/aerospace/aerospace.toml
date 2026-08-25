@@ -148,16 +148,16 @@ exec-on-workspace-change = ['/bin/bash', '-c',
 
 [[on-window-detected]]
     if.app-id = 'com.googlecode.iterm2'
-    run = ['layout tiling', 'move-node-to-workspace 1']
+    run = ['layout h_accordion', 'move-node-to-workspace 1']
 [[on-window-detected]]
     if.app-id = 'com.google.Chrome'
-    run = ['layout tiling', 'move-node-to-workspace 2']
+    run = ['layout h_accordion', 'move-node-to-workspace 2']
 [[on-window-detected]]
     if.app-id = 'com.jetbrains.intellij.ce'
-    run = ['layout tiling', 'move-node-to-workspace 3']
+    run = ['layout h_accordion', 'move-node-to-workspace 3']
 [[on-window-detected]]
     if.app-id = 'com.microsoft.teams2'
-    run = ['layout tiling', 'move-node-to-workspace 4']
+    run = ['layout h_accordion', 'move-node-to-workspace 4']
 [[on-window-detected]]
     if.app-id = 'com.microsoft.Outlook'
-    run = ['layout tiling', 'move-node-to-workspace 5']
+    run = ['layout h_accordion', 'move-node-to-workspace 5']
