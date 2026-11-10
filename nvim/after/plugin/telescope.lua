@@ -32,11 +32,13 @@ vim.keymap.set("x", "<leader>ps", '"zy:Telescope grep_string search=<C-r>z<cr>')
 vim.keymap.set("x", "<leader>pj", '"zy:Telescope buffers<cr><C-r>z')
 vim.keymap.set("x", "<leader>ph", '"zy:Telescope help_tags<cr><C-r>z')
 
-vim.keymap.set("n", "<C-e>", ":Telescope frecency workspace=CWD theme=ivy<CR>")
+vim.keymap.set("n", "<C-e>", ":Telescope frecency workspace=CWD<CR>")
 
 local rgIgnorePath = vim.fn.expand("$HOME/dotfiles/.rgignore")
 local fdIgnorePath = vim.fn.expand("$HOME/dotfiles/.fdignore")
-require("telescope").setup({
+local telescope = require("telescope")
+
+telescope.setup({
 	defaults = {},
 	pickers = {
 		find_files = {
@@ -56,5 +58,12 @@ require("telescope").setup({
 			additional_args = { "--ignore-file=" .. rgIgnorePath },
 		},
 	},
-	extensions = {},
+	extensions = {
+		frecency = {
+			-- completely disable the dialog
+			db_safe_mode = false,
+		},
+	},
 })
+
+telescope.load_extension("frecency")

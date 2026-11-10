@@ -10,14 +10,13 @@ list_oldfiles() {
     local valid_files=()
     for file in "${oldfiles[@]}"; do
         if [[ -f "$file" ]]; then
-            valid_files+=("$file")
+            valid_files+=("${file//$HOME/~}")
         fi
     done
     # Use fzf to select from valid files
-    local file=$(printf "%s\n" "${valid_files[@]}" | \
-        grep -v '\[.*' | fzf)
+    local file=$(printf "%s\n" "${valid_files[@]}" | grep -v '\[.*' | fzf)
 
-    echo "$file"
+    echo "${file//\~/$HOME}"
 
 }
 
